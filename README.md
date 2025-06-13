@@ -35,6 +35,7 @@ By developing both models separately, the project aims to evaluate which techniq
 
 ### 🟢 Solution Statements
 **Solution 1: Content-Based Filtering Model**
+
 Develop a similarity-based recommendation system using cosine similarity to measure the likeness between properties based on their feature vectors.
 
 Key features may include:
@@ -42,7 +43,8 @@ Key features may include:
 2. Type
 3. Facility
 
-Solution 2: Cluster-Based Filtering Model
+**Solution 2: Cluster-Based Filtering Model**
+
 Apply K-Means clustering to group properties into homogeneous clusters based on the same set of features.
 
 When a user inputs a preferred boarding house, the system identifies its cluster and recommends other properties from within the same cluster, assuming semantic similarity.
