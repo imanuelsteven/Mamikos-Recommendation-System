@@ -253,7 +253,7 @@ By leveraging the detailed FITUR_LENGKAP column, which combines key characterist
 ---
 ### 2. Cluster Based Reccomendation System
 
-* In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column. [[5]](https://arxiv.org/abs/2109.12839?utm_source=chatgpt.com)
+* In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column. [[6]](https://arxiv.org/abs/2109.12839?utm_source=chatgpt.com)
 
 
 * We use **TF-IDF (Term Frequency-Inverse Document Frequency)** to convert text data into numerical form. This highlights unique and meaningful words while reducing the impact of common terms. [[4]](https://issuu.com/ijraset/docs/screening_and_ranking_resumes_using_stacked_model/s/21497052)
@@ -278,7 +278,7 @@ Where:
 
 **Elbow Method**
 
-We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow. [[6]](https://www.geeksforgeeks.org/machine-learning/elbow-method-for-optimal-value-of-k-in-kmeans/)
+We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow. [[7]](https://www.geeksforgeeks.org/machine-learning/elbow-method-for-optimal-value-of-k-in-kmeans/)
 
 **Cluster Based Recommendation System Logic :**
 * Find the cluster of the input kos.
@@ -329,7 +329,7 @@ In model evaluation, we use two different evaluation metrics because each approa
 
 **1. Content Based Filtering : Precision**
 
-*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.[[7]](https://esairina.medium.com/memahami-confusion-matrix-accuracy-precision-recall-specificity-dan-f1-score-610d4f0db7cf)
+*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.[[8]](https://esairina.medium.com/memahami-confusion-matrix-accuracy-precision-recall-specificity-dan-f1-score-610d4f0db7cf)
 
 
 **Precision is calculated using the formula:**
@@ -350,7 +350,7 @@ The recommendation system achieved **`100% precision`** because it generated rec
 
 **2. Cluster Based Filtering : Silhouette Score**
 
-*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.[[8]](https://medium.com/@hazallgultekin/what-is-silhouette-score-f428fb39bf9a)
+*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.[[9]](https://medium.com/@hazallgultekin/what-is-silhouette-score-f428fb39bf9a)
 
 **Silhouette Score is calculated using the formula:**
 
