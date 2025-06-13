@@ -53,7 +53,7 @@ Both models will be assessed independently through comparative analysis covering
 
 --- 
 
-## Data Understanding
+## 📅❔ Data Understanding
 
 The Mamikos.csv dataset was collected via web scraping from website [Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0), using the Data Miner Chrome extension.
 It contains data about rental properties (boarding houses/kos-kosan) in Salatiga, Indonesia.
@@ -82,7 +82,7 @@ It contains data about rental properties (boarding houses/kos-kosan) in Salatiga
 ![First Distribution](Asset/first_distri.png)
 
 
-**Data Understanding Insights**
+**ℹ️📅 Data Understanding Insights**
 
 - **Inconsistent Values**  
   We found inconsistent values in the `alamat` column — some entries only mention the area name (e.g., "Sidorejo"), while others include the word "Kecamatan" (e.g., "Kecamatan Sidomukti").  
@@ -98,7 +98,7 @@ It contains data about rental properties (boarding houses/kos-kosan) in Salatiga
 
 - **Duplicate Entries**  
   We discovered `291 duplicate rows` in the dataset.  
-  > **Action**: All duplicates will be **removed** to prevent data bias.
+  - **Action**: All duplicates will be **removed** to prevent data bias.
 
 - **Incorrect Data Type**  
   The `harga` (price) column is currently of type **object (string)**.  
