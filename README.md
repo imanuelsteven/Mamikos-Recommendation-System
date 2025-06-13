@@ -253,7 +253,7 @@ By leveraging the detailed FITUR_LENGKAP column, which combines key characterist
 ---
 ### 2. Cluster Based Reccomendation System
 
-* In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column.
+* In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column. [[4]](https://arxiv.org/abs/2109.12839?utm_source=chatgpt.com)
 
 
 * We use **TF-IDF (Term Frequency-Inverse Document Frequency)** to convert text data into numerical form. This highlights unique and meaningful words while reducing the impact of common terms. [[2]](https://issuu.com/ijraset/docs/screening_and_ranking_resumes_using_stacked_model/s/21497052)
@@ -413,10 +413,11 @@ This project successfully explored two machine learning approaches—**Content-B
 ---
 ## Reference
 [1] F. Ricci, L. Rokach, and B. Shapira, Recommender Systems Handbook, 2nd ed. New York, NY, USA: Springer, 2015.
-[2] D. Kavitha1, Padmavathi B2 , Sushanth V3 , Yashwanth P2 , Yuvaraj R5, Screening and Ranking Resumes using Stacked Model - Issuu, 2023
+[2] D. Kavitha1, Screening and Ranking Resumes using Stacked Model - Issuu, 2023
 [3] S. Sindhu, Machine Learning Fundamentals: Cosine Similarity and Cosine Distance, 2021
-[4] geeksforgeeks, Elbow Method for optimal value of k in KMeans, 2025
-[5] Rina, Memahami Confusion Matrix: Accuracy, Precision, Recall, Specificity, dan F1-Score untuk Evaluasi Model Klasifikasi, 2023
-[5] Hazal Gültekin, What is Silhouette Score?, 2023
+[4] B. Irina, Review of Clustering-Based Recommender Systems, 2021
+[5] geeksforgeeks, Elbow Method for optimal value of k in KMeans, 2025
+[6] Rina, Memahami Confusion Matrix: Accuracy, Precision, Recall, Specificity, dan F1-Score untuk Evaluasi Model Klasifikasi, 2023
+[7] Hazal Gültekin, What is Silhouette Score?, 2023
 
 
