@@ -695,13 +695,13 @@ def clusterbased_recommendation(namakos_input, top_n=5):
     target_cluster = df_clean[df_clean['NAMAKOS'] == namakos_input]['cluster'].values[0]
     recommendation = df_clean[(df_clean['cluster'] == target_cluster) & (df_clean['NAMAKOS'] != namakos_input)]
 
-    return recommendation.head(top_n)[['NAMAKOS','ALAMAT','TIPE','FASILITAS','HARGA','cluster']]
+    return recommendation.head(top_n)[['NAMAKOS','ALAMAT','TIPE','FASILITAS','HARGA','cluster', '']]
 
 """**5. Check recommendation system**"""
 
-df_clean.sample()
+df_clean.sample(random_state= 42)
 
-clusterbased_recommendation('kost bu rita')
+clusterbased_recommendation('kost wisma shallom tipe 1')
 
 """# Model Evaluation
 In model evaluation, we use two different evaluation metrics because each approach has its own characteristics and requires distinct methods of assessment. Using appropriate metrics ensures that we accurately measure the model’s performance based on its specific objective and context.
@@ -759,7 +759,7 @@ eval = test_data['NAMAKOS'].iloc[0]
 #Check Kos Reccomendation
 rekomendasi_kosan(nama_kos_input= eval)
 
-"""The recommendation system achieved **`100% precision`** because it generated recommendations with identical FITUR_LENGKAP features as the sample used to request the recommendations. This perfect match leads to maximum precision, as all recommended items are exactly relevant.
+"""|
 
 **2. Cluster Based Filtering Evaluation Using Sillhouete Score**
 """
@@ -769,4 +769,11 @@ from sklearn.metrics import silhouette_score
 silhouette_avg = silhouette_score(tfidf_matrix, df_clean['cluster'])
 print(f'Clustering Based Filtering Silhouette Score: {silhouette_avg}')
 
-"""A low silhouette value indicates that the clustering result is **not good**. Many data are on the boundaries between clusters, which means **the separation between groups is not clear**. It is recommended to re-evaluate the number of clusters, the algorithm used, or perform feature engineering for more optimal results."""
+"""
+```
+Clustering Based Filtering Silhouette Score: 0.2624734645229076
+```
+
+
+
+A low silhouette value indicates that the clustering result is **not good**. Many data are on the boundaries between clusters, which means **the separation between groups is not clear**. It is recommended to re-evaluate the number of clusters, the algorithm used, or perform feature engineering for more optimal results."""
