@@ -167,6 +167,11 @@ Eliminating common words that carry little analytical value, such as “and”, 
   ![New Feature](Asset/new_feature.png)
 
 
+**EDA : Exploratory Data Analysis - After Preprocess**
+
+![Second Distribution](Asset/scnd_distri.png)
+
+
 
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
