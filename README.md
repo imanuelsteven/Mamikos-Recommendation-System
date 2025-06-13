@@ -352,7 +352,7 @@ All recommended items were **exactly relevant**, meaning there were no false pos
 
 **Precision is calculated using the formula:**
 
-$$Presisi = \frac{TP}{TP + FP}$$
+$$Precision = \frac{TP}{TP + FP}$$
 
 Where:
 
@@ -365,7 +365,7 @@ Where:
  **Precision Calculation:**
 
 $$
-\text{Precision} = \frac{5}{5 + 0} = 1.0 \ \text{100%}
+\text{Precision} = \frac{5}{5 + 0} = 1.0 \quad \text{or} \quad 100\%
 $$
 
 ---
