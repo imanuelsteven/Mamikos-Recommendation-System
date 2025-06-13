@@ -174,11 +174,59 @@ Eliminating common words that carry little analytical value, such as “and”, 
 
 
 ## Modeling
-Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
+## Content Based Filtering
+In this section, we build a recommendation system using a content-based filtering approach. The main focus is on utilizing the FITUR_LENGKAP column, which contains detailed descriptions of boarding house features. Here's how we proceed:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
-- Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
+**Feature Extraction with TF-IDF**:
+
+* To extract important textual features, we use TF-IDF (Term Frequency Inverse Document Frequency), a statistical method that evaluates how relevant a word is to a document in a collection (or corpus).
+
+TF-IDF highlights words that are unique and meaningful, while down-weighting common words across documents.
+
+**TF-IDF is written in the formula:**
+$$
+TF(t,d) = \frac{\text{number of times t appears in d}}{\text{total number of term in d}}
+$$
+
+
+$$IDF(t,D) = log \frac {N} {1+df}$$
+
+$$TFD(t,d) = TF(t,d) * IDF(t)$$
+
+Where:
+
+- **TF(t, d)**: Term Frequency — measures how often a term `t` appears in a document `d`. The higher the frequency, the more important the term is **within that specific document**.
+
+- **IDF(t, D)**: Inverse Document Frequency — measures how unique or important a term `t` is **across the entire corpus `D`**. If a term appears in many documents, its IDF will be lower because it's considered less informative.
+
+
+
+---
+
+**Cosine Similarity for Reccomendation System** :
+
+Once the TF-IDF vectors are generated, we use **Cosine Similarity** to measure how similar two items are.
+
+Cosine similarity is a metric that calculates the cosine of the angle between two vectors in a multi-dimensional space.
+
+The result ranges from -1 to 1:
+- `1` means the vectors are perfectly similar (point in the same direction),
+- `0` means they are unrelated (perpendicular),
+- `-1` means they are completely opposite.
+
+This method is widely used in text analysis and recommendation systems to compare the similarity between documents or items.
+
+**Cosine similarity is written in the formula:**
+
+
+$$Cosine Similarity  (A, B) = (A · B) / (||A|| * ||B||)$$
+
+
+where:
+- (A·B) : denotes the dot product of vectors A and B.
+- ||A|| : represents the Euclidean norm (magnitude) of vector A.
+- ||B|| : represents the Euclidean norm (magnitude) of vector B.
+
 
 ## Evaluation
 Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
