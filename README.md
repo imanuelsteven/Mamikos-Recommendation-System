@@ -1,4 +1,4 @@
-#  Machine Learning Project Report - Steven Graciano
+![image](https://github.com/user-attachments/assets/92eb23dc-247c-47ad-b562-644b225a1400)![image](https://github.com/user-attachments/assets/92eb23dc-247c-47ad-b562-644b225a1400)#  Machine Learning Project Report - Steven Graciano
 
 ## 📌 Project Overview
 ## Kos Reccomendation System🏘️
@@ -226,6 +226,27 @@ where:
 - (A·B) : denotes the dot product of vectors A and B.
 - ||A|| : represents the Euclidean norm (magnitude) of vector A.
 - ||B|| : represents the Euclidean norm (magnitude) of vector B.
+
+**Test Content Based Filtering Reccomendation**
+
+![Test Content Based Filtering](Asset/cb_test.png)
+
+The model successfully recommended the top 5 most similar boarding houses (kos) to "Kost Rumah Cemara Tipe B" using a content-based filtering approach. The system matched based on similar features, such as type, location, and amenities (e.g., WiFi, bed, bathroom). This means if a user prefers this particular kos, the system can recommend other kos options with closely matching features.
+
+By leveraging the detailed FITUR_LENGKAP column, which combines key characteristics, the recommendation engine was able to identify the most relevant alternatives. All top 5 recommendations returned a similarity score of 1.0, indicating that they share almost identical attributes with the reference kos.
+
+**Advantages of Cosine Similarity:**
+- Low computational complexity, making it efficient and fast.
+- Performs well with high-dimensional data, such as text-based features.
+- Ignores absolute magnitude, which is beneficial when feature values vary greatly in scale.
+
+**Limitations of Cosine Similarity:**
+- Only considers the direction of the feature vectors, not the magnitude.
+- Kos with very different pricing or sizes could still be seen as similar if their feature descriptions are alike.
+- Might overlook nuanced differences that could matter in real-world user preferences.
+
+
+
 
 
 ## Evaluation
