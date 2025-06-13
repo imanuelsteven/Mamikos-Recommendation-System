@@ -756,7 +756,16 @@ eval = test_data['NAMAKOS'].tolist()
 eval = test_data['NAMAKOS'].iloc[0]
 
 #Check Kos Reccomendation
-rekomendasi_kosan(nama_kos_input= eval)
+precision = rekomendasi_kosan(nama_kos_input= eval)
+precision
+
+def calculate_precision(df):
+    true_positives = df[df['Skor_Kemiripan'] == 1.0].shape[0]
+    false_positives = df[df['Skor_Kemiripan'] < 1.0].shape[0]
+    precision = true_positives / (true_positives + false_positives)
+    return precision
+
+calculate_precision(precision)
 
 """The **recommendation system** achieved a **100% precision score**.  
 This is because the system generated recommendations that have **identical `FITUR_LENGKAP` features** to the sample input used for the recommendation query.
