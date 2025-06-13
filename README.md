@@ -174,7 +174,7 @@ Eliminating common words that carry little analytical value, such as “and”, 
 
 
 ## Modeling
-## Content Based Filtering
+### 1. Content Based Filtering
 In this section, we build a recommendation system using a content-based filtering approach. The main focus is on utilizing the FITUR_LENGKAP column, which contains detailed descriptions of boarding house features. Here's how we proceed:
 
 **Feature Extraction with TF-IDF**:
@@ -227,7 +227,7 @@ where:
 - ||A|| : represents the Euclidean norm (magnitude) of vector A.
 - ||B|| : represents the Euclidean norm (magnitude) of vector B.
 
-**Test Content Based Filtering Reccomendation**
+> **Test Content Based Filtering Reccomendation**
 
 ![Test Content Based Filtering](Asset/cb_test.png)
 
@@ -244,6 +244,64 @@ By leveraging the detailed FITUR_LENGKAP column, which combines key characterist
 - Only considers the direction of the feature vectors, not the magnitude.
 - Kos with very different pricing or sizes could still be seen as similar if their feature descriptions are alike.
 - Might overlook nuanced differences that could matter in real-world user preferences.
+
+---
+### Cluster Based Reccomendation System
+
+* In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column.
+
+
+* We use **TF-IDF (Term Frequency-Inverse Document Frequency)** to convert text data into numerical form. This highlights unique and meaningful words while reducing the impact of common terms.
+
+---
+
+**K-Means Clustering**
+
+Once we have the TF-IDF vectors, we apply **K-Means Clustering** to group the kos-kosan.
+
+K-Means Formula:
+
+
+$$
+\underset{C}{\arg\min} \sum_{i=1}^{k} \sum_{x \in C_i} \| x - \mu_i \|^2
+$$
+
+Where:
+- $C_i$ = cluster $i$  
+- $\mu_i$ = centroid of cluster $i$  
+- $x$ = data point
+---
+
+**Elbow Method**
+
+We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow.
+
+---
+
+**Cluster Based Recommendation System Logic :**
+* Find the cluster of the input kos.
+* Recommend other kos-kosan within the same cluster (excluding the input one).
+
+This method ensures recommendations are feature-based and grouped by similarity.
+
+> **Test Cluster Based Filtering Reccomendation**
+
+![Test Cluster Based Filtering](Asset/clb_test.png)
+
+The model recommended the top 5 boarding houses (kos) that are similar to "Kost Wisma Shallom Tipe 1" using the K-Means clustering approach. These recommendations are based on shared characteristics encoded in the FITUR_LENGKAP column, which includes type, location, and facilities.
+
+The system first locates the cluster of the input kos, then suggests other kos within that same cluster. This method aims to group kos-kosan with similar features, offering relevant recommendations to users based on their interest.
+
+While most of the recommended kos do belong to the same cluster and share similar attributes (e.g., location in Sidorejo, similar facilities), the results are not 100% exact:
+
+- 🛏️ Some facilities differ slightly, such as the presence of a closet in certain kos.
+
+- 🏷️ One recommendation has a different kos type, which may not fully align with the user's preference.
+
+- 🧩 One kos belongs to a different cluster, which shows that clustering may not always perfectly isolate feature similarity.
+
+Despite these small variations, the system still captures a meaningful level of similarity, providing reasonably relevant suggestions. This kind of variation is common in clustering models, especially when features are not strictly standardized.
+
 
 
 
