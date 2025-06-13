@@ -7,15 +7,19 @@ This project aims to design and compare two distinct recommendation models—Con
 
 ## ❔ Business Understanding
 
-The motivation for this project arises from the common difficulty users face when searching for rental accommodations that match their specific preferences. Traditional listing platforms often lack personalization features, requiring users to manually browse numerous irrelevant listings.
+In Indonesia, kos-kosan (boarding houses) are a popular and essential form of rental accommodation, particularly among students and young professionals. Each kos may vary in terms of pricing, type (e.g., male-only, female-only, or mixed), location, and available facilities such as Wi-Fi, furniture, or private bathrooms.
 
-To address this, the project investigates two machine learning-based techniques:
+However, users often struggle to find a kos that fits their specific needs due to the overwhelming number of listings and the lack of personalization features in most property search platforms. Users are typically required to browse through countless irrelevant options manually, which is both inefficient and frustrating.
 
-- Content-Based Filtering (CBF) recommends properties that share similar features—such as location, facilities, and type—with those the user has previously shown interest in.
+To address this problem, this project proposes the development of a recommendation system—a machine learning-based solution designed to suggest suitable kos-kosan based on user preferences. Recommendation systems aim to enhance user experience by filtering and ranking items based on similarity or group-based relevance [[1]](https://link.springer.com/book/10.1007/978-1-4899-7637-6).
 
-- Cluster-Based Filtering (CLF) utilizes unsupervised learning (e.g., K-Means clustering) to group properties with similar characteristics and recommends items from the same cluster as the user’s selected reference.
+This study investigates two distinct approaches:
 
-By developing both models separately, the project aims to evaluate which technique provides more relevant recommendations, better performance, and interpretability.
+- Content-Based Filtering (CBF): A technique that recommends kos with similar features—such as type, location, and facilities—to those the user has previously liked or selected.
+
+- Cluster-Based Filtering (CLF): An unsupervised learning approach, specifically using K-Means clustering, which groups kos into clusters based on feature similarity, then recommends items from the same group as the reference kos.
+
+By implementing both models independently, this project aims to compare their performance in terms of relevance, accuracy, and interpretability to determine which method better suits the personalized accommodation search needs in Salatiga, Indonesia.
 
 ### ❌ Problem Statements
 
@@ -408,4 +412,5 @@ This project successfully explored two machine learning approaches—**Content-B
 
 ---
 ## Reference
+[1] F. Ricci, L. Rokach, and B. Shapira, Recommender Systems Handbook, 2nd ed. New York, NY, USA: Springer, 2015.
 
