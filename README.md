@@ -7,15 +7,19 @@ This project aims to design and compare two distinct recommendation models—Con
 
 ## ❔ Business Understanding
 
-The motivation for this project arises from the common difficulty users face when searching for rental accommodations that match their specific preferences. Traditional listing platforms often lack personalization features, requiring users to manually browse numerous irrelevant listings.
+In Indonesia, kos-kosan (boarding houses) are a popular and essential form of rental accommodation, particularly among students and young professionals. Each kos may vary in terms of pricing, type (e.g., male-only, female-only, or mixed), location, and available facilities such as Wi-Fi, furniture, or private bathrooms.
 
-To address this, the project investigates two machine learning-based techniques:
+However, users often struggle to find a kos that fits their specific needs due to the overwhelming number of listings and the lack of personalization features in most property search platforms. Users are typically required to browse through countless irrelevant options manually, which is both inefficient and frustrating.
 
-- Content-Based Filtering (CBF) recommends properties that share similar features—such as location, facilities, and type—with those the user has previously shown interest in.
+To address this problem, this project proposes the development of a recommendation system—a machine learning-based solution designed to suggest suitable kos-kosan based on user preferences. Recommendation systems aim to enhance user experience by filtering and ranking items based on similarity or group-based relevance [[1]](https://link.springer.com/book/10.1007/978-1-4899-7637-6).
 
-- Cluster-Based Filtering (CLF) utilizes unsupervised learning (e.g., K-Means clustering) to group properties with similar characteristics and recommends items from the same cluster as the user’s selected reference.
+This study investigates two distinct approaches:
 
-By developing both models separately, the project aims to evaluate which technique provides more relevant recommendations, better performance, and interpretability.
+- Content-Based Filtering (CBF): A technique that recommends kos with similar features—such as type, location, and facilities—to those the user has previously liked or selected.
+
+- Cluster-Based Filtering (CLF): An unsupervised learning approach, specifically using K-Means clustering, which groups kos into clusters based on feature similarity, then recommends items from the same group as the reference kos.
+
+By implementing both models independently, this project aims to compare their performance in terms of relevance, accuracy, and interpretability to determine which method better suits the personalized accommodation search needs in Salatiga, Indonesia.
 
 ### ❌ Problem Statements
 
@@ -55,7 +59,7 @@ Both models will be assessed independently through comparative analysis covering
 
 ## 📅❔ Data Understanding
 
-The Mamikos.csv dataset was collected via web scraping from website [Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0), using the Data Miner Chrome extension.
+The Mamikos.csv dataset was collected via web scraping from website [Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0), using the [Data Miner](https://dataminer.io/) Chrome extension.
 It contains data about rental properties (boarding houses/kos-kosan) in Salatiga, Indonesia.
 - **Data include 518 rows and 5 column**
 
@@ -181,9 +185,10 @@ In this section, we build a recommendation system using a content-based filterin
 
 * To extract important textual features, we use TF-IDF (Term Frequency Inverse Document Frequency), a statistical method that evaluates how relevant a word is to a document in a collection (or corpus).
 
-TF-IDF highlights words that are unique and meaningful, while down-weighting common words across documents.
+TF-IDF highlights words that are unique and meaningful, while down-weighting common words across documents. [[2]](https://issuu.com/ijraset/docs/screening_and_ranking_resumes_using_stacked_model/s/21497052)
 
 **TF-IDF is written in the formula:**
+
 $$
 TF(t,d) = \frac{\text{number of times t appears in d}}{\text{total number of term in d}}
 $$
@@ -207,7 +212,7 @@ Where:
 
 Once the TF-IDF vectors are generated, we use **Cosine Similarity** to measure how similar two items are.
 
-Cosine similarity is a metric that calculates the cosine of the angle between two vectors in a multi-dimensional space.
+Cosine similarity is a metric that calculates the cosine of the angle between two vectors in a multi-dimensional space. [[3]](https://medium.com/geekculture/cosine-similarity-and-cosine-distance-48eed889a5c4)
 
 The result ranges from -1 to 1:
 - `1` means the vectors are perfectly similar (point in the same direction),
@@ -246,17 +251,17 @@ By leveraging the detailed FITUR_LENGKAP column, which combines key characterist
 - Might overlook nuanced differences that could matter in real-world user preferences.
 
 ---
-### Cluster Based Reccomendation System
+### 2. Cluster Based Reccomendation System
 
-* In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column.
+* In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column. [[4]](https://arxiv.org/abs/2109.12839?utm_source=chatgpt.com)
 
 
-* We use **TF-IDF (Term Frequency-Inverse Document Frequency)** to convert text data into numerical form. This highlights unique and meaningful words while reducing the impact of common terms.
+* We use **TF-IDF (Term Frequency-Inverse Document Frequency)** to convert text data into numerical form. This highlights unique and meaningful words while reducing the impact of common terms. [[2]](https://issuu.com/ijraset/docs/screening_and_ranking_resumes_using_stacked_model/s/21497052)
 
 
 **K-Means Clustering**
 
-Once we have the TF-IDF vectors, we apply **K-Means Clustering** to group the kos-kosan.
+Once we have the TF-IDF vectors, we apply **K-Means Clustering** to group the kos-kosan. 
 
 K-Means Formula:
 
@@ -273,7 +278,7 @@ Where:
 
 **Elbow Method**
 
-We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow.
+We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow. [[4]](https://www.geeksforgeeks.org/machine-learning/elbow-method-for-optimal-value-of-k-in-kmeans/)
 
 **Cluster Based Recommendation System Logic :**
 * Find the cluster of the input kos.
@@ -281,7 +286,7 @@ We also use `Elbow Method` To find the optimal number of clusters (K), we use th
 
 This method ensures recommendations are feature-based and grouped by similarity.
 
-#### **Test Cluster Based Filtering Reccomendation**
+#### >> **Test Cluster Based Filtering Reccomendation**
 
 ![Test Cluster Based Filtering](Asset/clb_test.png)
 
@@ -299,7 +304,7 @@ While most of the recommended kos do belong to the same cluster and share simila
 
 Despite these small variations, the system still captures a meaningful level of similarity, providing reasonably relevant suggestions. This kind of variation is common in clustering models, especially when features are not strictly standardized.
 
-**Advantages of K‑Means Clustering: **
+**Advantages of K‑Means Clustering:**
 - Simple & fast: Easy to implement and runs efficiently, making it suitable for large datasets of kos descriptions 
 - Scalable: Handles high volumes of data smoothly thanks to its iterative centroid-updating process 
 - Converges reliably: Typically converges to a local optimum quickly across runs 
@@ -322,14 +327,14 @@ In model evaluation, we use two different evaluation metrics because each approa
 
 ---
 
-**1. Content Based Filtering : silhouette score**
+**1. Content Based Filtering : Precision**
 
-*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.
+*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.[[5]](https://esairina.medium.com/memahami-confusion-matrix-accuracy-precision-recall-specificity-dan-f1-score-610d4f0db7cf)
 
 
 **Precision is calculated using the formula:**
 
-$$Presisi = \frac{TP}{TP + FP}$$
+$$Precision = \frac{TP}{TP + FP}$$
 
 Where:
 
@@ -337,11 +342,15 @@ Where:
 
 * **FP (False Positive)**: The number of instances incorrectly predicted as positive (actually negative).
 
+![Evaluate Precision](Asset/precision.png)
+
+The recommendation system achieved **`100% precision`** because it generated recommendations with identical FITUR_LENGKAP features as the sample used to request the recommendations. This perfect match leads to maximum precision, as all recommended items are exactly relevant.
+
 ---
 
 **2. Cluster Based Filtering : Silhouette Score**
 
-*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.
+*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.[[6]](https://medium.com/@hazallgultekin/what-is-silhouette-score-f428fb39bf9a)
 
 **Silhouette Score is calculated using the formula:**
 
@@ -359,3 +368,62 @@ if score
 * **Close to 0:** Weak separation—the data points are near the boundary of two clusters, so cluster assignments are less distinct.
 
 * **Close to –1:** Poor clustering—the data points may have been assigned to the wrong cluster entirely.  
+
+![Evaluate  Sillhouete Score](Asset/sscore.png)
+
+```
+Clustering Based Filtering Silhouette Score: 0.2624734645229076
+```
+
+A low silhouette value indicates that the clustering result is **not good**. Many data are on the boundaries between clusters, which means **the separation between groups is not clear**. It is recommended to re-evaluate the number of clusters, the algorithm used, or perform feature engineering for more optimal results.
+
+
+
+
+Here's a **clean and concise conclusion** based on your entire project report, reflecting both modeling approaches, evaluation results, and real-world implications:
+
+---
+
+## **Conclusion**
+
+This project successfully explored two machine learning approaches—**Content-Based Filtering** and **Cluster-Based Filtering using K-Means**—to recommend boarding houses (*kos*) in Salatiga, Indonesia.
+
+**Model Performance & Results :**
+
+* The **Content-Based Filtering model**, powered by **TF-IDF and Cosine Similarity**, effectively recommended kos with highly similar features to the user's selected kos. The top 5 results had near-identical amenities, types, and locations, achieving a **perfect similarity score (1.0)** in some cases. This shows strong performance in capturing direct feature-level similarities.
+
+* The **Cluster-Based Filtering model**, built using **K-Means clustering**, grouped kos into clusters based on combined features. It was able to provide **reasonable and relevant recommendations** from within the same cluster. However, the results weren’t perfectly precise:
+
+  * Some kos had **slightly different facilities**.
+  * One recommended kos had a **different type**.
+  * One kos even belonged to a **different cluster**, indicating minor clustering imperfections.
+
+
+| Method                  | Evaluation Metric | Result Summary                                                 |
+| ----------------------- | ----------------- | -------------------------------------------------------------- |
+| Content-Based Filtering | Precision         | Very high; most recommendations were nearly identical to input |
+| Cluster-Based Filtering | Silhouette Score  | Good clustering, but with minor mismatches in type/cluster     |
+
+**Key Takeaways :**
+
+* **Content-Based Filtering** excels when the goal is to find **direct feature matches**. It’s reliable, especially for users with clear preferences.
+* **Cluster-Based Filtering** is valuable when seeking **feature-based group recommendations**, but requires careful tuning of `K` and feature preprocessing.
+* Both methods offer complementary strengths—**CBF for accuracy**, **CLF for scalability and exploration**.
+
+---
+## Reference
+- [1] F. Ricci, L. Rokach, and B. Shapira, Recommender Systems Handbook, 2nd ed. New York, NY, USA: Springer, 2015.
+
+- [2] D. Kavitha1, Screening and Ranking Resumes using Stacked Model - Issuu, 2023
+
+- [3] S. Sindhu, Machine Learning Fundamentals: Cosine Similarity and Cosine Distance, 2021
+
+- [4] B. Irina, Review of Clustering-Based Recommender Systems, 2021
+
+- [5] geeksforgeeks, Elbow Method for optimal value of k in KMeans, 2025
+
+- [6] Rina, Memahami Confusion Matrix: Accuracy, Precision, Recall, Specificity, dan F1-Score untuk Evaluasi Model Klasifikasi, 2023
+
+- [7] Hazal Gültekin, What is Silhouette Score?, 2023
+
+
