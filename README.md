@@ -106,11 +106,56 @@ It contains data about rental properties (boarding houses/kos-kosan) in Salatiga
 
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+In this stage, we apply all the findings from the data understanding phase. The following actions are taken to clean and prepare the data:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+* **Inconsistent Values**  
+  * We found inconsistent values in the `alamat` column — some entries only mention the area name (e.g., "Sidorejo"), while others include the word "Kecamatan" (e.g., "Kecamatan Sidomukti").  
+  * **Action**: Standardize all entries by removing the prefix **"Kecamatan"** so they merge under a unified value (e.g., `"Kecamatan Sidomukti"` → `"Sidomukti"`).
+
+* **Rename Unknown Values**  
+  * We Found unknown values in alamat of `Kost MHome Sidorejo Salatiga`
+  * **Action**: These rows will be **Rename** to maintain data quality.
+
+
+* **Missing Values**  
+  * There are 11 missing values in the `fasilitas` column.  
+  * **Action**: These rows will be dropped to maintain data quality.
+
+* **Duplicate Entries**  
+  * The dataset contains 212 duplicated rows.  
+  * **Action**: These rows will be **dropped** to maintain data quality.
+
+* **Incorrect Data Type**  
+  * The `harga` (price) column is currently stored as an object (string).  
+  * **Action**: This column will be converted into a numeric data type for better analysis and modeling.
+
+---
+
+**Text Preprocessing**
+
+Further preprocessing will be applied to all text columns:
+
+* **Text Cleaning**  
+Standardizing text format by converting to lowercase and removing extra whitespace.
+
+* **Tokenization**  
+Splitting text into individual words (tokens) for easier manipulation and analysis.
+
+* **Stopword Removal**  
+Eliminating common words that carry little analytical value, such as “and”, “in”, “the”, etc.
+
+---
+
+**Feature Engineering**
+
+* **Using a Cleaned DataFrame**
+
+  In this step, we eliminate unnecessary columns and store the refined data into a new variable called `df_clean`. This allows us to focus only on the relevant features for our recommendation system.
+
+* **Creating a Combined Feature Column for Recommendation System**
+
+  Next, we create a new column called `FITUR_LENGKAP` by combining the values from the `TIPE`, `ALAMAT`, and `FASILITAS` columns. This combined text will serve as the input feature for the content-based recommendation system using **TF-IDF** and **Cosine Similarity** methods.
+
 
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
