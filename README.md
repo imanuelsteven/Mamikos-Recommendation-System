@@ -412,18 +412,14 @@ This project successfully explored two machine learning approaches—**Content-B
 
 ---
 ## Reference
-- [1] F. Ricci, L. Rokach, and B. Shapira, Recommender Systems Handbook, 2nd ed. New York, NY, USA: Springer, 2015.
-
-- [2] D. Kavitha1, Screening and Ranking Resumes using Stacked Model - Issuu, 2023
-
-- [3] S. Sindhu, Machine Learning Fundamentals: Cosine Similarity and Cosine Distance, 2021
-
-- [4] B. Irina, Review of Clustering-Based Recommender Systems, 2021
-
-- [5] geeksforgeeks, Elbow Method for optimal value of k in KMeans, 2025
-
-- [6] Rina, Memahami Confusion Matrix: Accuracy, Precision, Recall, Specificity, dan F1-Score untuk Evaluasi Model Klasifikasi, 2023
-
-- [7] Hazal Gültekin, What is Silhouette Score?, 2023
+- [1] S. DWI AS, Beradu Cepat Berburu Kos, 2022
+- [2] Team Serumah, Susah Cari Kos-kosan Nyaman, 2016
+- [3] F. Ricci, L. Rokach, and B. Shapira, Recommender Systems Handbook, 2nd ed. New York, NY, USA: Springer, 2015.
+- [4] D. Kavitha1, Screening and Ranking Resumes using Stacked Model - Issuu, 2023
+- [5] S. Sindhu, Machine Learning Fundamentals: Cosine Similarity and Cosine Distance, 2021
+- [6] B. Irina, Review of Clustering-Based Recommender Systems, 2021
+- [7] geeksforgeeks, Elbow Method for optimal value of k in KMeans, 2025
+- [8] Rina, Memahami Confusion Matrix: Accuracy, Precision, Recall, Specificity, dan F1-Score untuk Evaluasi Model Klasifikasi, 2023
+- [9] Hazal Gültekin, What is Silhouette Score?, 2023
 
 
