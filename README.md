@@ -340,8 +340,10 @@ Where:
 * **TP (True Positive)**: The number of instances correctly predicted as positive.
 
 * **FP (False Positive)**: The number of instances incorrectly predicted as positive (actually negative).
+  
 
 ![Evaluate Precision](Asset/precision.png)
+
 
 The **recommendation system** achieved a **100% precision score**.  
 This is because the system generated recommendations that have **identical `FITUR_LENGKAP` features** to the sample input used for the recommendation query.
