@@ -278,7 +278,7 @@ Where:
 
 **Elbow Method**
 
-We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow. [[4]](https://www.geeksforgeeks.org/machine-learning/elbow-method-for-optimal-value-of-k-in-kmeans/)
+We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow. [[5]](https://www.geeksforgeeks.org/machine-learning/elbow-method-for-optimal-value-of-k-in-kmeans/)
 
 **Cluster Based Recommendation System Logic :**
 * Find the cluster of the input kos.
@@ -329,7 +329,7 @@ In model evaluation, we use two different evaluation metrics because each approa
 
 **1. Content Based Filtering : Precision**
 
-*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.[[5]](https://esairina.medium.com/memahami-confusion-matrix-accuracy-precision-recall-specificity-dan-f1-score-610d4f0db7cf)
+*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.[[6]](https://esairina.medium.com/memahami-confusion-matrix-accuracy-precision-recall-specificity-dan-f1-score-610d4f0db7cf)
 
 
 **Precision is calculated using the formula:**
@@ -350,7 +350,7 @@ The recommendation system achieved **`100% precision`** because it generated rec
 
 **2. Cluster Based Filtering : Silhouette Score**
 
-*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.[[6]](https://medium.com/@hazallgultekin/what-is-silhouette-score-f428fb39bf9a)
+*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.[[7]](https://medium.com/@hazallgultekin/what-is-silhouette-score-f428fb39bf9a)
 
 **Silhouette Score is calculated using the formula:**
 
