@@ -212,7 +212,7 @@ Where:
 
 Once the TF-IDF vectors are generated, we use **Cosine Similarity** to measure how similar two items are.
 
-Cosine similarity is a metric that calculates the cosine of the angle between two vectors in a multi-dimensional space.
+Cosine similarity is a metric that calculates the cosine of the angle between two vectors in a multi-dimensional space. [[3]](https://medium.com/geekculture/cosine-similarity-and-cosine-distance-48eed889a5c4)
 
 The result ranges from -1 to 1:
 - `1` means the vectors are perfectly similar (point in the same direction),
@@ -414,6 +414,7 @@ This project successfully explored two machine learning approaches—**Content-B
 ## Reference
 [1] F. Ricci, L. Rokach, and B. Shapira, Recommender Systems Handbook, 2nd ed. New York, NY, USA: Springer, 2015.
 [2] D. Kavitha1, Padmavathi B2 , Sushanth V3 , Yashwanth P2 , Yuvaraj R5, Screening and Ranking Resumes using Stacked Model - Issuu, 2023
+[3] S. Sindhu . Machine Learning Fundamentals: Cosine Similarity and Cosine Distance, 2021
 
 
 
