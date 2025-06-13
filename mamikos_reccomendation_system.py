@@ -189,7 +189,7 @@ In this stage, we apply all the findings from the data understanding phase. The 
   * **Action**: These rows will be dropped to maintain data quality.
 
 * **Duplicate Entries**  
-  * The dataset contains 212 duplicated rows.  
+  * The dataset contains 291 duplicated rows.  
   * **Action**: These rows will be **dropped** to maintain data quality.
 
 * **Incorrect Data Type**  
@@ -758,7 +758,27 @@ eval = test_data['NAMAKOS'].iloc[0]
 #Check Kos Reccomendation
 rekomendasi_kosan(nama_kos_input= eval)
 
-"""|
+"""The **recommendation system** achieved a **100% precision score**.  
+This is because the system generated recommendations that have **identical `FITUR_LENGKAP` features** to the sample input used for the recommendation query.
+
+All recommended items were **exactly relevant**, meaning there were no false positives — every suggestion matched the sample’s characteristics.
+
+**Precision is calculated using the formula:**
+
+$$Presisi = \frac{TP}{TP + FP}$$
+
+Where:
+
+* **TP (True Positive)**: The number of instances correctly predicted as positive.
+
+* **FP (False Positive)**: The number of instances incorrectly predicted as positive (actually negative).
+
+---
+
+ **Precision Calculation:**
+$$
+\text{Precision} = \frac{5}{5 + 0} = 1.0 \ (100\%)
+$$
 
 **2. Cluster Based Filtering Evaluation Using Sillhouete Score**
 """
