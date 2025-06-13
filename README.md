@@ -365,7 +365,7 @@ Where:
  **Precision Calculation:**
 
 $$
-\text{Precision} = \frac{5}{5 + 0} = 1.0 \ \text(100%)
+\text{Precision} = \frac{5}{5 + 0} = 1.0 \ \text{100%}
 $$
 
 ---
