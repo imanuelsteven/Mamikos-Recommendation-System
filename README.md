@@ -246,7 +246,7 @@ By leveraging the detailed FITUR_LENGKAP column, which combines key characterist
 - Might overlook nuanced differences that could matter in real-world user preferences.
 
 ---
-### Cluster Based Reccomendation System
+### >> Cluster Based Reccomendation System
 
 * In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column.
 
@@ -281,7 +281,7 @@ We also use `Elbow Method` To find the optimal number of clusters (K), we use th
 
 This method ensures recommendations are feature-based and grouped by similarity.
 
-#### **Test Cluster Based Filtering Reccomendation**
+#### >> **Test Cluster Based Filtering Reccomendation**
 
 ![Test Cluster Based Filtering](Asset/clb_test.png)
 
@@ -299,7 +299,7 @@ While most of the recommended kos do belong to the same cluster and share simila
 
 Despite these small variations, the system still captures a meaningful level of similarity, providing reasonably relevant suggestions. This kind of variation is common in clustering models, especially when features are not strictly standardized.
 
-**Advantages of K‑Means Clustering: **
+**Advantages of K‑Means Clustering:**
 - Simple & fast: Easy to implement and runs efficiently, making it suitable for large datasets of kos descriptions 
 - Scalable: Handles high volumes of data smoothly thanks to its iterative centroid-updating process 
 - Converges reliably: Typically converges to a local optimum quickly across runs 
@@ -337,7 +337,7 @@ Where:
 
 * **FP (False Positive)**: The number of instances incorrectly predicted as positive (actually negative).
 
-[Evaluate Precision](Asset/precision.png)
+![Evaluate Precision](Asset/precision.png)
 
 The recommendation system achieved **`100% precision`** because it generated recommendations with identical FITUR_LENGKAP features as the sample used to request the recommendations. This perfect match leads to maximum precision, as all recommended items are exactly relevant.
 
@@ -364,7 +364,7 @@ if score
 
 * **Close to –1:** Poor clustering—the data points may have been assigned to the wrong cluster entirely.  
 
-[Evaluate  Sillhouete Score](Asset/sscore.png)
+![Evaluate  Sillhouete Score](Asset/sscore.png)
 
 ```
 Clustering Based Filtering Silhouette Score: 0.2624734645229076
