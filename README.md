@@ -159,10 +159,13 @@ Eliminating common words that carry little analytical value, such as “and”, 
 * **Using a Cleaned DataFrame**
 
   In this step, we eliminate unnecessary columns and store the refined data into a new variable called `df_clean`. This allows us to focus only on the relevant features for our recommendation system.
+  ![Use Clean Data](Asset/dfclean.png)
 
 * **Creating a Combined Feature Column for Recommendation System**
 
-  Next, we create a new column called `FITUR_LENGKAP` by combining the values from the `TIPE`, `ALAMAT`, and `FASILITAS` columns. This combined text will serve as the input feature for the content-based recommendation system using **TF-IDF** and **Cosine Similarity** methods.
+Next, we create a new column called `FITUR_LENGKAP` by combining the values from the `TIPE`, `ALAMAT`, and `FASILITAS` columns. This combined text will serve as the input feature for the content-based recommendation system using **TF-IDF** and **Cosine Similarity** methods.
+![New Feature](Asset/new_feature.png)
+
 
 
 ## Modeling
