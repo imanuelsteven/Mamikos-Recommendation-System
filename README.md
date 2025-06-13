@@ -58,6 +58,7 @@ Both models will be assessed independently through comparative analysis covering
 The Mamikos.csv dataset was collected via web scraping from website [Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0), using the Data Miner Chrome extension.
 It contains data about rental properties (boarding houses/kos-kosan) in Salatiga, Indonesia.
 - **Data include 518 rows and 5 column**
+
 | # | Column | Non-Null Count | Dtype |
 |:---|:---|:---|:---|
 | 0 | nama_kos | 518 non-null | object |
