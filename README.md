@@ -55,7 +55,7 @@ Both models will be assessed independently through comparative analysis covering
 
 ## Data Understanding
 
-![Mamikos](Asset/First Distribution.png)
+![First Distribution](Asset/first_distri.png)
 
 Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
 
