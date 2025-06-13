@@ -163,8 +163,8 @@ Eliminating common words that carry little analytical value, such as “and”, 
 
 * **Creating a Combined Feature Column for Recommendation System**
 
-Next, we create a new column called `FITUR_LENGKAP` by combining the values from the `TIPE`, `ALAMAT`, and `FASILITAS` columns. This combined text will serve as the input feature for the content-based recommendation system using **TF-IDF** and **Cosine Similarity** methods.
-![New Feature](Asset/new_feature.png)
+  Next, we create a new column called `FITUR_LENGKAP` by combining the values from the `TIPE`, `ALAMAT`, and `FASILITAS` columns. This combined text will serve as the input feature for the content-based   recommendation system using **TF-IDF** and **Cosine Similarity** methods.
+  ![New Feature](Asset/new_feature.png)
 
 
 
