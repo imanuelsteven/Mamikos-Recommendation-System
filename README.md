@@ -1,11 +1,11 @@
 #  Machine Learning Project Report - Steven Graciano
 
-## Project Overview
-## Kos Reccomendation System
+## 📌 Project Overview
+## Kos Reccomendation System🏘️
 ![Mamikos](Asset/mamikos.png)
 This project aims to design and compare two distinct recommendation models—Content-Based Filtering and Cluster-Based Filtering to assist users in identifying suitable boarding houses (kos) in Salatiga, Indonesia. The objective is to improve the accommodation selection process by providing personalized recommendations aligned with user preferences and previously liked properties. Rather than combining models into a hybrid system, each will be developed and evaluated separately to determine which offers higher accuracy, relevance, and efficiency.
 
-## Business Understanding
+## ❔ Business Understanding
 
 The motivation for this project arises from the common difficulty users face when searching for rental accommodations that match their specific preferences. Traditional listing platforms often lack personalization features, requiring users to manually browse numerous irrelevant listings.
 
@@ -17,7 +17,7 @@ To address this, the project investigates two machine learning-based techniques:
 
 By developing both models separately, the project aims to evaluate which technique provides more relevant recommendations, better performance, and interpretability.
 
-### Problem Statements
+### ❌ Problem Statements
 
 - How can a content-based filtering model be constructed to provide personalized boarding house recommendations based on explicit features?
 
@@ -25,7 +25,7 @@ By developing both models separately, the project aims to evaluate which techniq
 
 - Between content-based and cluster-based filtering, which model yields more accurate and relevant suggestions for users in the Salatiga region?
 
-### Goals
+### 🎯 Goals
 - To build a content-based filtering model that recommends boarding houses by calculating the similarity between user-specified preferences and property features using appropriate similarity metrics.
 
 - To construct a cluster-based filtering model that segments the property dataset and recommends items from the same cluster as a given reference.
@@ -33,7 +33,7 @@ By developing both models separately, the project aims to evaluate which techniq
 - To evaluate both models using defined performance metrics such as Precision, Recall, and Silhouette Score, and determine which better reflects user preferences and usability.
 
 
-### Solution statements
+### 🟢 Solution Statements
 **Solution 1: Content-Based Filtering Model**
 Develop a similarity-based recommendation system using cosine similarity to measure the likeness between properties based on their feature vectors.
 
