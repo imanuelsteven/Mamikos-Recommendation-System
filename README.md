@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/92eb23dc-247c-47ad-b562-644b225a1400)![image](https://github.com/user-attachments/assets/92eb23dc-247c-47ad-b562-644b225a1400)#  Machine Learning Project Report - Steven Graciano
+#  Machine Learning Project Report - Steven Graciano
 
 ## 📌 Project Overview
 ## Kos Reccomendation System🏘️
@@ -227,7 +227,7 @@ where:
 - ||A|| : represents the Euclidean norm (magnitude) of vector A.
 - ||B|| : represents the Euclidean norm (magnitude) of vector B.
 
-> **Test Content Based Filtering Reccomendation**
+`**Test Content Based Filtering Reccomendation**`
 
 ![Test Content Based Filtering](Asset/cb_test.png)
 
@@ -253,7 +253,6 @@ By leveraging the detailed FITUR_LENGKAP column, which combines key characterist
 
 * We use **TF-IDF (Term Frequency-Inverse Document Frequency)** to convert text data into numerical form. This highlights unique and meaningful words while reducing the impact of common terms.
 
----
 
 **K-Means Clustering**
 
@@ -270,13 +269,11 @@ Where:
 - $C_i$ = cluster $i$  
 - $\mu_i$ = centroid of cluster $i$  
 - $x$ = data point
----
+
 
 **Elbow Method**
 
 We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow.
-
----
 
 **Cluster Based Recommendation System Logic :**
 * Find the cluster of the input kos.
@@ -284,7 +281,7 @@ We also use `Elbow Method` To find the optimal number of clusters (K), we use th
 
 This method ensures recommendations are feature-based and grouped by similarity.
 
-> **Test Cluster Based Filtering Reccomendation**
+`**Test Cluster Based Filtering Reccomendation**`
 
 ![Test Cluster Based Filtering](Asset/clb_test.png)
 
@@ -302,21 +299,63 @@ While most of the recommended kos do belong to the same cluster and share simila
 
 Despite these small variations, the system still captures a meaningful level of similarity, providing reasonably relevant suggestions. This kind of variation is common in clustering models, especially when features are not strictly standardized.
 
+**Advantages of K‑Means Clustering: **
+- Simple & fast: Easy to implement and runs efficiently, making it suitable for large datasets of kos descriptions 
+- Scalable: Handles high volumes of data smoothly thanks to its iterative centroid-updating process 
+- Converges reliably: Typically converges to a local optimum quickly across runs 
+- Tuneable initialization: Can boost quality and speed using methods like K‑Means++ for smart centroid seeding 
+- Interpretable clusters: Recommendations are explainable & based on clear feature groupings via FITUR_LENGKAP vectors.
 
+**Disadvantages of K‑Means Clustering:**
 
+- Must predefine K: You need to select the number of clusters upfront, often via the Elbow Method—but it can be subjective 
+- Sensitive to initialization: Poor random seeds can trap centroids in bad local minima—mitigated by K‑Means++ 
+- Assumes spherical, equal-sized clusters: Performance drops if clusters vary in size, shape, or density—common n real-world kos data 
+- Outlier sensitivity: Atypical kos entries can skew centroids or form misleading clusters 
+- Scales poorly with high dimensions: When TF‑IDF vectors become very large, performance and accuracy may degrade 
+- Local minima & cold clustering: K‑Means will cluster even unclusterable data, and results may vary across runs
 
 
 
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
+In model evaluation, we use two different evaluation metrics because each approach has its own characteristics and requires distinct methods of assessment. Using appropriate metrics ensures that we accurately measure the model’s performance based on its specific objective and context.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+---
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+**1. Content Based Filtering : silhouette score**
 
-**---Ini adalah bagian akhir laporan---**
+*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+
+**Precision is calculated using the formula:**
+
+$$Presisi = \frac{TP}{TP + FP}$$
+
+Where:
+
+* **TP (True Positive)**: The number of instances correctly predicted as positive.
+
+* **FP (False Positive)**: The number of instances incorrectly predicted as positive (actually negative).
+
+---
+
+**2. Cluster Based Filtering : Silhouette Score**
+
+*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.
+
+**Silhouette Score is calculated using the formula:**
+
+$$ s(i) = \frac {b(i) - a(i)} {max(a(i), b(i))} $$
+
+where :
+* **a(i)** - Cohesion: The average distance from one data point to all other points in the same cluster.
+* **b(i)** - Separation: The average distance from one data point to all points in the nearest other cluster.
+
+**overall :**
+
+if score
+* **Close to +1**: Excellent cluster separation—the data points are far apart from other clusters and well grouped within their own cluster.
+
+* **Close to 0:** Weak separation—the data points are near the boundary of two clusters, so cluster assignments are less distinct.
+
+* **Close to –1:** Poor clustering—the data points may have been assigned to the wrong cluster entirely.  
