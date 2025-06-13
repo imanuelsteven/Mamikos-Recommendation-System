@@ -420,6 +420,6 @@ This project successfully explored two machine learning approaches—**Content-B
 - [6] B. Irina, Review of Clustering-Based Recommender Systems, 2021
 - [7] geeksforgeeks, Elbow Method for optimal value of k in KMeans, 2025
 - [8] Rina, Memahami Confusion Matrix: Accuracy, Precision, Recall, Specificity, dan F1-Score untuk Evaluasi Model Klasifikasi, 2023
-- [9] Hazal Gültekin, What is Silhouette Score?, 2023
+- [9] G. Hazal, What is Silhouette Score?, 2023
 
 
