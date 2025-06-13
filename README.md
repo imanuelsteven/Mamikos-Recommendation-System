@@ -125,8 +125,8 @@ In this stage, we apply all the findings from the data understanding phase. The 
 * **Duplicate Entries**  
   * The dataset contains 212 duplicated rows.  
   * **Action**: These rows will be **dropped** to maintain data quality.
-  * 
 ![Handling Duplicate](Asset/duplicate.png)
+
 * **Missing Values**  
   * There are 11 missing values in the `fasilitas` column.  
   * **Action**: These rows will be dropped to maintain data quality.
