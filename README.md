@@ -55,20 +55,16 @@ Both models will be assessed independently through comparative analysis covering
 
 ## Data Understanding
 
-The Mamikos.csv dataset was collected via web scraping from website ['Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0) using the Data Miner Chrome extension.
+The Mamikos.csv dataset was collected via web scraping from website [Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0) using the Data Miner Chrome extension.
 It contains data about rental properties (boarding houses/kos-kosan) in Salatiga, Indonesia.
 **Data include 518 rows and 5 column**
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 518 entries, 0 to 517
-Data columns (total 5 columns):
- #   Column     Non-Null Count  Dtype 
----  ------     --------------  ----- 
- 0   nama_kos   518 non-null    object
- 1   tipe       518 non-null    object
- 2   alamat     518 non-null    object
- 3   fasilitas  507 non-null    object
- 4   harga      518 non-null    object
-dtypes: object(5)
+| # | Column | Non-Null Count | Dtype |
+|:---|:---|:---|:---|
+| 0 | nama_kos | 518 non-null | object |
+| 1 | tipe | 518 non-null | object |
+| 2 | alamat | 518 non-null | object |
+| 3 | fasilitas | 507 non-null | object |
+| 4 | harga | 518 non-null | object |
 
 ![Data Miner](Asset/data_miner.png)
 
