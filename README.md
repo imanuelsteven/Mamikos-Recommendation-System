@@ -115,19 +115,27 @@ In this stage, we apply all the findings from the data understanding phase. The 
 * **Rename Unknown Values**  
   * We Found unknown values in alamat of `Kost MHome Sidorejo Salatiga`
   * **Action**: These rows will be **Rename** to maintain data quality.
+![Rename Unknown](Asset/unknown.png)
 
 
 * **Missing Values**  
   * There are 11 missing values in the `fasilitas` column.  
   * **Action**: These rows will be dropped to maintain data quality.
 
+![Handling NA](Asset/na.png)
+
 * **Duplicate Entries**  
   * The dataset contains 212 duplicated rows.  
   * **Action**: These rows will be **dropped** to maintain data quality.
 
+![Handling Duplicate](Asset/duplicate.png)
+
+
 * **Incorrect Data Type**  
   * The `harga` (price) column is currently stored as an object (string).  
   * **Action**: This column will be converted into a numeric data type for better analysis and modeling.
+
+![Handling Dtype](Asset/dtype.png)
 
 ---
 
