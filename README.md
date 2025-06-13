@@ -185,7 +185,7 @@ In this section, we build a recommendation system using a content-based filterin
 
 * To extract important textual features, we use TF-IDF (Term Frequency Inverse Document Frequency), a statistical method that evaluates how relevant a word is to a document in a collection (or corpus).
 
-TF-IDF highlights words that are unique and meaningful, while down-weighting common words across documents.
+TF-IDF highlights words that are unique and meaningful, while down-weighting common words across documents. [[2]](https://issuu.com/ijraset/docs/screening_and_ranking_resumes_using_stacked_model/s/21497052)
 
 **TF-IDF is written in the formula:**
 
@@ -413,4 +413,7 @@ This project successfully explored two machine learning approaches—**Content-B
 ---
 ## Reference
 [1] F. Ricci, L. Rokach, and B. Shapira, Recommender Systems Handbook, 2nd ed. New York, NY, USA: Springer, 2015.
+[2] D. Kavitha1, Padmavathi B2 , Sushanth V3 , Yashwanth P2 , Yuvaraj R5, Screening and Ranking Resumes using Stacked Model - Issuu, 2023
+
+
 
