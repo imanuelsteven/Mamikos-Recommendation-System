@@ -55,9 +55,9 @@ Both models will be assessed independently through comparative analysis covering
 
 ## Data Understanding
 
-The Mamikos.csv dataset was collected via web scraping from website [Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0) using the Data Miner Chrome extension.
+The Mamikos.csv dataset was collected via web scraping from website [Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0), using the Data Miner Chrome extension.
 It contains data about rental properties (boarding houses/kos-kosan) in Salatiga, Indonesia.
-**Data include 518 rows and 5 column**
+- **Data include 518 rows and 5 column**
 | # | Column | Non-Null Count | Dtype |
 |:---|:---|:---|:---|
 | 0 | nama_kos | 518 non-null | object |
@@ -80,21 +80,20 @@ It contains data about rental properties (boarding houses/kos-kosan) in Salatiga
 
 ![First Distribution](Asset/first_distri.png)
 
----
 
 **Data Understanding Insights**
 
 - **Inconsistent Values**  
   We found inconsistent values in the `alamat` column — some entries only mention the area name (e.g., "Sidorejo"), while others include the word "Kecamatan" (e.g., "Kecamatan Sidomukti").  
-  > **Action**: Standardize all entries by removing the prefix **"Kecamatan"** so they merge under a unified value (e.g., `"Kecamatan Sidomukti"` → `"Sidomukti"`).
+  - **Action**: Standardize all entries by removing the prefix **"Kecamatan"** so they merge under a unified value (e.g., `"Kecamatan Sidomukti"` → `"Sidomukti"`).
 
 - **Unknown Values**  
   We found unknown or improperly formatted values in the `alamat` column, such as `"Kost MHome Sidorejo Salatiga"`.  
-  > **Action**: These entries will be **renamed/cleaned** for consistency and quality.
+  - **Action**: These entries will be **renamed/cleaned** for consistency and quality.
 
 - **Missing Values**  
   There are `11 missing values` in the `fasilitas` column.  
-  > **Action**: Rows with missing values will be **dropped** to ensure data integrity.
+  - **Action**: Rows with missing values will be **dropped** to ensure data integrity.
 
 - **Duplicate Entries**  
   We discovered `291 duplicate rows` in the dataset.  
@@ -102,7 +101,7 @@ It contains data about rental properties (boarding houses/kos-kosan) in Salatiga
 
 - **Incorrect Data Type**  
   The `harga` (price) column is currently of type **object (string)**.  
-  > **Action**: It will be **converted to a numeric type** to enable proper calculations and modeling.
+  - **Action**: It will be **converted to a numeric type** to enable proper calculations and modeling.
 
 
 ## Data Preparation
