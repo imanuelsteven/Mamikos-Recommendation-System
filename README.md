@@ -55,19 +55,59 @@ Both models will be assessed independently through comparative analysis covering
 
 ## Data Understanding
 
+The Mamikos.csv dataset was collected via web scraping from website ['Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0) using the Data Miner Chrome extension.
+It contains data about rental properties (boarding houses/kos-kosan) in Salatiga, Indonesia.
+**Data include 518 rows and 5 column**
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 518 entries, 0 to 517
+Data columns (total 5 columns):
+ #   Column     Non-Null Count  Dtype 
+---  ------     --------------  ----- 
+ 0   nama_kos   518 non-null    object
+ 1   tipe       518 non-null    object
+ 2   alamat     518 non-null    object
+ 3   fasilitas  507 non-null    object
+ 4   harga      518 non-null    object
+dtypes: object(5)
+
+![Data Miner](Asset/data_miner.png)
+
+**🧾 Dataset Columns**
+
+- nama_kos : Name of the boarding house available for rent
+- tipe : boarding houses/kos-kosan Type -> Putra, Putri, Campur
+- alamat: Sub-district where the boarding house is located
+- fasilitas: Facilities or amenities provided (e.g., Wi-Fi, AC)
+- harga: Rental price of the boarding house.
+
+**EDA : Exploratory Data Analysis**
+
 ![First Distribution](Asset/first_distri.png)
 
-Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+---
 
-Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+**Data Understanding Insights**
 
-Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+- **Inconsistent Values**  
+  We found inconsistent values in the `alamat` column — some entries only mention the area name (e.g., "Sidorejo"), while others include the word "Kecamatan" (e.g., "Kecamatan Sidomukti").  
+  > **Action**: Standardize all entries by removing the prefix **"Kecamatan"** so they merge under a unified value (e.g., `"Kecamatan Sidomukti"` → `"Sidomukti"`).
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
+- **Unknown Values**  
+  We found unknown or improperly formatted values in the `alamat` column, such as `"Kost MHome Sidorejo Salatiga"`.  
+  > **Action**: These entries will be **renamed/cleaned** for consistency and quality.
+
+- **Missing Values**  
+  There are `11 missing values` in the `fasilitas` column.  
+  > **Action**: Rows with missing values will be **dropped** to ensure data integrity.
+
+- **Duplicate Entries**  
+  We discovered `291 duplicate rows` in the dataset.  
+  > **Action**: All duplicates will be **removed** to prevent data bias.
+
+- **Incorrect Data Type**  
+  The `harga` (price) column is currently of type **object (string)**.  
+  > **Action**: It will be **converted to a numeric type** to enable proper calculations and modeling.
+
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
