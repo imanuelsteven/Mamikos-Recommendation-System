@@ -149,6 +149,9 @@ Splitting text into individual words (tokens) for easier manipulation and analys
 * **Stopword Removal**  
 Eliminating common words that carry little analytical value, such as “and”, “in”, “the”, etc.
 
+![Text Processing](Asset/textprep1.png)
+![Apply Function](Asset/textprep2.png)
+
 ---
 
 **Feature Engineering**
