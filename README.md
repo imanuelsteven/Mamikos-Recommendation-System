@@ -327,14 +327,14 @@ In model evaluation, we use two different evaluation metrics because each approa
 
 ---
 
-**1. Content Based Filtering : silhouette score**
+**1. Content Based Filtering : Precision**
 
-*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.
+*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.[[5]](https://esairina.medium.com/memahami-confusion-matrix-accuracy-precision-recall-specificity-dan-f1-score-610d4f0db7cf)
 
 
 **Precision is calculated using the formula:**
 
-$$Presisi = \frac{TP}{TP + FP}$$
+$$Precision = \frac{TP}{TP + FP}$$
 
 Where:
 
@@ -350,7 +350,7 @@ The recommendation system achieved **`100% precision`** because it generated rec
 
 **2. Cluster Based Filtering : Silhouette Score**
 
-*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.
+*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.[[6]](https://medium.com/@hazallgultekin/what-is-silhouette-score-f428fb39bf9a)
 
 **Silhouette Score is calculated using the formula:**
 
@@ -416,6 +416,7 @@ This project successfully explored two machine learning approaches—**Content-B
 [2] D. Kavitha1, Padmavathi B2 , Sushanth V3 , Yashwanth P2 , Yuvaraj R5, Screening and Ranking Resumes using Stacked Model - Issuu, 2023
 [3] S. Sindhu, Machine Learning Fundamentals: Cosine Similarity and Cosine Distance, 2021
 [4] geeksforgeeks, Elbow Method for optimal value of k in KMeans, 2025
-
+[5] Rina, Memahami Confusion Matrix: Accuracy, Precision, Recall, Specificity, dan F1-Score untuk Evaluasi Model Klasifikasi, 2023
+[5] Hazal Gültekin, What is Silhouette Score?, 2023
 
 
