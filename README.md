@@ -3,7 +3,7 @@
 ## 📌 Project Overview
 ## Kos Reccomendation System🏘️
 ![Mamikos](Asset/mamikos.png)
-This project aims to design and compare two distinct recommendation models—Content-Based Filtering and Cluster-Based Filtering to assist users in identifying suitable boarding houses (kos) in Salatiga, Indonesia. The objective is to improve the accommodation selection process by providing personalized recommendations aligned with user preferences and previously liked properties. Rather than combining models into a hybrid system, each will be developed and evaluated separately to determine which offers higher accuracy, relevance, and efficiency.
+This project aims to design and compare two distinct recommendation models—Content-Based Filtering and Cluster-Based Filtering to assist users in identifying suitable boarding houses (kos) in Salatiga, Indonesia. The objective is to improve the accommodation selection process by providing personalized recommendations aligned with user preferences and previously liked properties[[1]](https://www.kompas.id/baca/muda/2022/07/15/beradu-cepat-berburu-kos)[[2]](https://serumah.com/id/2016/05/09/susah-cari-kos-kosan-nyaman/). Rather than combining models into a hybrid system, each will be developed and evaluated separately to determine which offers higher accuracy, relevance, and efficiency.
 
 ## ❔ Business Understanding
 
@@ -11,7 +11,7 @@ In Indonesia, kos-kosan (boarding houses) are a popular and essential form of re
 
 However, users often struggle to find a kos that fits their specific needs due to the overwhelming number of listings and the lack of personalization features in most property search platforms. Users are typically required to browse through countless irrelevant options manually, which is both inefficient and frustrating.
 
-To address this problem, this project proposes the development of a recommendation system—a machine learning-based solution designed to suggest suitable kos-kosan based on user preferences. Recommendation systems aim to enhance user experience by filtering and ranking items based on similarity or group-based relevance [[1]](https://link.springer.com/book/10.1007/978-1-4899-7637-6).
+To address this problem, this project proposes the development of a recommendation system—a machine learning-based solution designed to suggest suitable kos-kosan based on user preferences. Recommendation systems aim to enhance user experience by filtering and ranking items based on similarity or group-based relevance [[3]](https://link.springer.com/book/10.1007/978-1-4899-7637-6).
 
 This study investigates two distinct approaches:
 
@@ -185,7 +185,7 @@ In this section, we build a recommendation system using a content-based filterin
 
 * To extract important textual features, we use TF-IDF (Term Frequency Inverse Document Frequency), a statistical method that evaluates how relevant a word is to a document in a collection (or corpus).
 
-TF-IDF highlights words that are unique and meaningful, while down-weighting common words across documents. [[2]](https://issuu.com/ijraset/docs/screening_and_ranking_resumes_using_stacked_model/s/21497052)
+TF-IDF highlights words that are unique and meaningful, while down-weighting common words across documents. [[4]](https://issuu.com/ijraset/docs/screening_and_ranking_resumes_using_stacked_model/s/21497052)
 
 **TF-IDF is written in the formula:**
 
@@ -212,7 +212,7 @@ Where:
 
 Once the TF-IDF vectors are generated, we use **Cosine Similarity** to measure how similar two items are.
 
-Cosine similarity is a metric that calculates the cosine of the angle between two vectors in a multi-dimensional space. [[3]](https://medium.com/geekculture/cosine-similarity-and-cosine-distance-48eed889a5c4)
+Cosine similarity is a metric that calculates the cosine of the angle between two vectors in a multi-dimensional space. [[5]](https://medium.com/geekculture/cosine-similarity-and-cosine-distance-48eed889a5c4)
 
 The result ranges from -1 to 1:
 - `1` means the vectors are perfectly similar (point in the same direction),
@@ -253,10 +253,10 @@ By leveraging the detailed FITUR_LENGKAP column, which combines key characterist
 ---
 ### 2. Cluster Based Reccomendation System
 
-* In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column. [[4]](https://arxiv.org/abs/2109.12839?utm_source=chatgpt.com)
+* In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column. [[5]](https://arxiv.org/abs/2109.12839?utm_source=chatgpt.com)
 
 
-* We use **TF-IDF (Term Frequency-Inverse Document Frequency)** to convert text data into numerical form. This highlights unique and meaningful words while reducing the impact of common terms. [[2]](https://issuu.com/ijraset/docs/screening_and_ranking_resumes_using_stacked_model/s/21497052)
+* We use **TF-IDF (Term Frequency-Inverse Document Frequency)** to convert text data into numerical form. This highlights unique and meaningful words while reducing the impact of common terms. [[4]](https://issuu.com/ijraset/docs/screening_and_ranking_resumes_using_stacked_model/s/21497052)
 
 
 **K-Means Clustering**
@@ -278,7 +278,7 @@ Where:
 
 **Elbow Method**
 
-We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow. [[5]](https://www.geeksforgeeks.org/machine-learning/elbow-method-for-optimal-value-of-k-in-kmeans/)
+We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow. [[6]](https://www.geeksforgeeks.org/machine-learning/elbow-method-for-optimal-value-of-k-in-kmeans/)
 
 **Cluster Based Recommendation System Logic :**
 * Find the cluster of the input kos.
@@ -329,7 +329,7 @@ In model evaluation, we use two different evaluation metrics because each approa
 
 **1. Content Based Filtering : Precision**
 
-*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.[[6]](https://esairina.medium.com/memahami-confusion-matrix-accuracy-precision-recall-specificity-dan-f1-score-610d4f0db7cf)
+*Precision* is a crucial metric for evaluating the performance of a classification model. It helps us understand how accurate the model is in identifying positive instances. A high precision score indicates that the model rarely makes false positive predictions, meaning its positive predictions are more trustworthy.[[7]](https://esairina.medium.com/memahami-confusion-matrix-accuracy-precision-recall-specificity-dan-f1-score-610d4f0db7cf)
 
 
 **Precision is calculated using the formula:**
@@ -350,7 +350,7 @@ The recommendation system achieved **`100% precision`** because it generated rec
 
 **2. Cluster Based Filtering : Silhouette Score**
 
-*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.[[7]](https://medium.com/@hazallgultekin/what-is-silhouette-score-f428fb39bf9a)
+*Silhouette Score* is a metric used to evaluate the quality of clusters created during unsupervised machine learning, such as with the K-Means algorithm. It measures how well-defined and distinct the clusters are. The score for each data sample is calculated based on its relationship with other samples both inside and outside its own cluster.[[8]](https://medium.com/@hazallgultekin/what-is-silhouette-score-f428fb39bf9a)
 
 **Silhouette Score is calculated using the formula:**
 
