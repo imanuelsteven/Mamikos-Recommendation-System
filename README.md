@@ -170,17 +170,7 @@ Eliminating common words that carry little analytical value, such as “and”, 
   Next, we create a new column called `FITUR_LENGKAP` by combining the values from the `TIPE`, `ALAMAT`, and `FASILITAS` columns. This combined text will serve as the input feature for the content-based   recommendation system using **TF-IDF** and **Cosine Similarity** methods.
   ![New Feature](Asset/new_feature.png)
 
-
-**EDA : Exploratory Data Analysis - After Preprocess**
-
-![Second Distribution](Asset/scnd_distri.png)
-
-
-
-## Modeling
-### 1. Content Based Filtering
-In this section, we build a recommendation system using a content-based filtering approach. The main focus is on utilizing the FITUR_LENGKAP column, which contains detailed descriptions of boarding house features. Here's how we proceed:
-
+---
 **Feature Extraction with TF-IDF**:
 
 * To extract important textual features, we use TF-IDF (Term Frequency Inverse Document Frequency), a statistical method that evaluates how relevant a word is to a document in a collection (or corpus).
@@ -205,6 +195,17 @@ Where:
 - **IDF(t, D)**: Inverse Document Frequency — measures how unique or important a term `t` is **across the entire corpus `D`**. If a term appears in many documents, its IDF will be lower because it's considered less informative.
 
 
+
+
+**EDA : Exploratory Data Analysis - After Preprocess**
+
+![Second Distribution](Asset/scnd_distri.png)
+
+
+
+## Modeling
+### 1. Content Based Filtering
+In this section, we build a recommendation system using a content-based filtering approach.The main focus is on utilizing the FITUR_LENGKAP column — which has been preprocessed in the Data Preparation phase.This column contains detailed textual descriptions of each boarding house’s features (e.g., type, location, facilities).
 
 ---
 
