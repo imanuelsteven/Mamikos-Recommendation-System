@@ -337,6 +337,10 @@ Where:
 
 * **FP (False Positive)**: The number of instances incorrectly predicted as positive (actually negative).
 
+[Evaluate Precision](Asset/precision.png)
+
+The recommendation system achieved **`100% precision`** because it generated recommendations with identical FITUR_LENGKAP features as the sample used to request the recommendations. This perfect match leads to maximum precision, as all recommended items are exactly relevant.
+
 ---
 
 **2. Cluster Based Filtering : Silhouette Score**
@@ -359,3 +363,11 @@ if score
 * **Close to 0:** Weak separation—the data points are near the boundary of two clusters, so cluster assignments are less distinct.
 
 * **Close to –1:** Poor clustering—the data points may have been assigned to the wrong cluster entirely.  
+
+[Evaluate  Sillhouete Score](Asset/sscore.png)
+
+```
+Clustering Based Filtering Silhouette Score: 0.2624734645229076
+```
+
+A low silhouette value indicates that the clustering result is **not good**. Many data are on the boundaries between clusters, which means **the separation between groups is not clear**. It is recommended to re-evaluate the number of clusters, the algorithm used, or perform feature engineering for more optimal results.
