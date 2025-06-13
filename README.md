@@ -184,6 +184,7 @@ In this section, we build a recommendation system using a content-based filterin
 TF-IDF highlights words that are unique and meaningful, while down-weighting common words across documents.
 
 **TF-IDF is written in the formula:**
+
 $$
 TF(t,d) = \frac{\text{number of times t appears in d}}{\text{total number of term in d}}
 $$
