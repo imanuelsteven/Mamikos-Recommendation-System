@@ -345,7 +345,27 @@ Where:
 
 ![Evaluate Precision](Asset/precision.png)
 
-The recommendation system achieved **`100% precision`** because it generated recommendations with identical FITUR_LENGKAP features as the sample used to request the recommendations. This perfect match leads to maximum precision, as all recommended items are exactly relevant.
+The **recommendation system** achieved a **100% precision score**.  
+This is because the system generated recommendations that have **identical `FITUR_LENGKAP` features** to the sample input used for the recommendation query.
+
+All recommended items were **exactly relevant**, meaning there were no false positives — every suggestion matched the sample’s characteristics.
+
+**Precision is calculated using the formula:**
+
+$$Presisi = \frac{TP}{TP + FP}$$
+
+Where:
+
+* **TP (True Positive)**: The number of instances correctly predicted as positive.
+
+* **FP (False Positive)**: The number of instances incorrectly predicted as positive (actually negative).
+
+---
+
+ **Precision Calculation:**
+$$
+\text{Precision} = \frac{5}{5 + 0} = 1.0 \ (100\%)
+$$
 
 ---
 
