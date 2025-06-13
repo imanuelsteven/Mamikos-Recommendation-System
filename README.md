@@ -364,8 +364,9 @@ Where:
 
  **Precision Calculation:**
 
-$$\text{Precision} = \frac{5}{5 + 0} = 1.0 \quad \text{or} \quad 100\%$$
-
+$$
+\text{Precision} = \frac{5}{5 + 0} = 1.0 \ (100\%)
+$$
 ---
 
 **2. Cluster Based Filtering : Silhouette Score**
