@@ -96,13 +96,13 @@ It contains data about rental properties (boarding houses/kos-kosan) in Salatiga
   We found unknown or improperly formatted values in the `alamat` column, such as `"Kost MHome Sidorejo Salatiga"`.  
   - **Action**: These entries will be **renamed/cleaned** for consistency and quality.
 
-- **Missing Values**  
-  There are `11 missing values` in the `fasilitas` column.  
-  - **Action**: Rows with missing values will be **dropped** to ensure data integrity.
-
 - **Duplicate Entries**  
   We discovered `291 duplicate rows` in the dataset.  
   - **Action**: All duplicates will be **removed** to prevent data bias.
+
+- **Missing Values**  
+  There are `11 missing values` in the `fasilitas` column.  
+  - **Action**: Rows with missing values will be **dropped** to ensure data integrity.
 
 - **Incorrect Data Type**  
   The `harga` (price) column is currently of type **object (string)**.  
@@ -122,15 +122,15 @@ In this stage, we apply all the findings from the data understanding phase. The 
 ![Rename Unknown](Asset/unknown.png)
 
 
+* **Duplicate Entries**  
+  * The dataset contains 291 duplicated rows.  
+  * **Action**: These rows will be **dropped** to maintain data quality.
+![Handling Duplicate](Asset/duplicate.png)
+
 * **Missing Values**  
   * There are 11 missing values in the `fasilitas` column.  
   * **Action**: These rows will be dropped to maintain data quality.
 ![Handling NA](Asset/na.png)
-
-* **Duplicate Entries**  
-  * The dataset contains 212 duplicated rows.  
-  * **Action**: These rows will be **dropped** to maintain data quality.
-![Handling Duplicate](Asset/duplicate.png)
 
 
 * **Incorrect Data Type**  
@@ -301,8 +301,6 @@ While most of the recommended kos do belong to the same cluster and share simila
 
 - 🏷️ One recommendation has a different kos type, which may not fully align with the user's preference.
 
-- 🧩 One kos belongs to a different cluster, which shows that clustering may not always perfectly isolate feature similarity.
-
 Despite these small variations, the system still captures a meaningful level of similarity, providing reasonably relevant suggestions. This kind of variation is common in clustering models, especially when features are not strictly standardized.
 
 **Advantages of K‑Means Clustering:**
@@ -345,7 +343,28 @@ Where:
 
 ![Evaluate Precision](Asset/precision.png)
 
-The recommendation system achieved **`100% precision`** because it generated recommendations with identical FITUR_LENGKAP features as the sample used to request the recommendations. This perfect match leads to maximum precision, as all recommended items are exactly relevant.
+The **recommendation system** achieved a **100% precision score**.  
+This is because the system generated recommendations that have **identical `FITUR_LENGKAP` features** to the sample input used for the recommendation query.
+
+All recommended items were **exactly relevant**, meaning there were no false positives — every suggestion matched the sample’s characteristics.
+
+**Precision is calculated using the formula:**
+
+$$Precision = \frac{TP}{TP + FP}$$
+
+Where:
+
+* **TP (True Positive)**: The number of instances correctly predicted as positive.
+
+* **FP (False Positive)**: The number of instances incorrectly predicted as positive (actually negative).
+
+---
+
+ **Precision Calculation:**
+ 
+$$
+\text{Precision} = \frac{5}{5 + 0} = 1.0 \quad \text{or} \quad 100\%
+$$
 
 ---
 
