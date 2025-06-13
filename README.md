@@ -247,7 +247,7 @@ By leveraging the detailed FITUR_LENGKAP column, which combines key characterist
 - Might overlook nuanced differences that could matter in real-world user preferences.
 
 ---
-### >> Cluster Based Reccomendation System
+### 2. Cluster Based Reccomendation System
 
 * In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column.
 
