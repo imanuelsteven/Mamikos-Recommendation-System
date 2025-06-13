@@ -371,3 +371,40 @@ Clustering Based Filtering Silhouette Score: 0.2624734645229076
 ```
 
 A low silhouette value indicates that the clustering result is **not good**. Many data are on the boundaries between clusters, which means **the separation between groups is not clear**. It is recommended to re-evaluate the number of clusters, the algorithm used, or perform feature engineering for more optimal results.
+
+
+
+
+Here's a **clean and concise conclusion** based on your entire project report, reflecting both modeling approaches, evaluation results, and real-world implications:
+
+---
+
+## **Conclusion**
+
+This project successfully explored two machine learning approaches—**Content-Based Filtering** and **Cluster-Based Filtering using K-Means**—to recommend boarding houses (*kos*) in Salatiga, Indonesia.
+
+**Model Performance & Results :**
+
+* The **Content-Based Filtering model**, powered by **TF-IDF and Cosine Similarity**, effectively recommended kos with highly similar features to the user's selected kos. The top 5 results had near-identical amenities, types, and locations, achieving a **perfect similarity score (1.0)** in some cases. This shows strong performance in capturing direct feature-level similarities.
+
+* The **Cluster-Based Filtering model**, built using **K-Means clustering**, grouped kos into clusters based on combined features. It was able to provide **reasonable and relevant recommendations** from within the same cluster. However, the results weren’t perfectly precise:
+
+  * Some kos had **slightly different facilities**.
+  * One recommended kos had a **different type**.
+  * One kos even belonged to a **different cluster**, indicating minor clustering imperfections.
+
+
+| Method                  | Evaluation Metric | Result Summary                                                 |
+| ----------------------- | ----------------- | -------------------------------------------------------------- |
+| Content-Based Filtering | Precision         | Very high; most recommendations were nearly identical to input |
+| Cluster-Based Filtering | Silhouette Score  | Good clustering, but with minor mismatches in type/cluster     |
+
+**Key Takeaways :**
+
+* **Content-Based Filtering** excels when the goal is to find **direct feature matches**. It’s reliable, especially for users with clear preferences.
+* **Cluster-Based Filtering** is valuable when seeking **feature-based group recommendations**, but requires careful tuning of `K` and feature preprocessing.
+* Both methods offer complementary strengths—**CBF for accuracy**, **CLF for scalability and exploration**.
+
+---
+## Reference
+
