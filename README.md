@@ -256,12 +256,12 @@ By leveraging the detailed FITUR_LENGKAP column, which combines key characterist
 * In this section, we build a recommendation system using a **clustering approach** with **K-Means**. The goal is to group kos-kosan with similar features based on the `FITUR_LENGKAP` column.
 
 
-* We use **TF-IDF (Term Frequency-Inverse Document Frequency)** to convert text data into numerical form. This highlights unique and meaningful words while reducing the impact of common terms.
+* We use **TF-IDF (Term Frequency-Inverse Document Frequency)** to convert text data into numerical form. This highlights unique and meaningful words while reducing the impact of common terms. [[2]](https://issuu.com/ijraset/docs/screening_and_ranking_resumes_using_stacked_model/s/21497052)
 
 
 **K-Means Clustering**
 
-Once we have the TF-IDF vectors, we apply **K-Means Clustering** to group the kos-kosan.
+Once we have the TF-IDF vectors, we apply **K-Means Clustering** to group the kos-kosan. 
 
 K-Means Formula:
 
@@ -278,7 +278,7 @@ Where:
 
 **Elbow Method**
 
-We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow.
+We also use `Elbow Method` To find the optimal number of clusters (K), we use the **Elbow Method**, which plots the total inertia (within-cluster sum of squares). The best K is where the curve starts to "bend" like an elbow. [[4]](https://www.geeksforgeeks.org/machine-learning/elbow-method-for-optimal-value-of-k-in-kmeans/)
 
 **Cluster Based Recommendation System Logic :**
 * Find the cluster of the input kos.
@@ -414,7 +414,8 @@ This project successfully explored two machine learning approaches—**Content-B
 ## Reference
 [1] F. Ricci, L. Rokach, and B. Shapira, Recommender Systems Handbook, 2nd ed. New York, NY, USA: Springer, 2015.
 [2] D. Kavitha1, Padmavathi B2 , Sushanth V3 , Yashwanth P2 , Yuvaraj R5, Screening and Ranking Resumes using Stacked Model - Issuu, 2023
-[3] S. Sindhu . Machine Learning Fundamentals: Cosine Similarity and Cosine Distance, 2021
+[3] S. Sindhu, Machine Learning Fundamentals: Cosine Similarity and Cosine Distance, 2021
+[4] geeksforgeeks, Elbow Method for optimal value of k in KMeans, 2025
 
 
 
