@@ -96,13 +96,13 @@ It contains data about rental properties (boarding houses/kos-kosan) in Salatiga
   We found unknown or improperly formatted values in the `alamat` column, such as `"Kost MHome Sidorejo Salatiga"`.  
   - **Action**: These entries will be **renamed/cleaned** for consistency and quality.
 
-- **Missing Values**  
-  There are `11 missing values` in the `fasilitas` column.  
-  - **Action**: Rows with missing values will be **dropped** to ensure data integrity.
-
 - **Duplicate Entries**  
   We discovered `291 duplicate rows` in the dataset.  
   - **Action**: All duplicates will be **removed** to prevent data bias.
+
+- **Missing Values**  
+  There are `11 missing values` in the `fasilitas` column.  
+  - **Action**: Rows with missing values will be **dropped** to ensure data integrity.
 
 - **Incorrect Data Type**  
   The `harga` (price) column is currently of type **object (string)**.  
@@ -122,15 +122,15 @@ In this stage, we apply all the findings from the data understanding phase. The 
 ![Rename Unknown](Asset/unknown.png)
 
 
+* **Duplicate Entries**  
+  * The dataset contains 212 duplicated rows.  
+  * **Action**: These rows will be **dropped** to maintain data quality.
+  * 
+![Handling Duplicate](Asset/duplicate.png)
 * **Missing Values**  
   * There are 11 missing values in the `fasilitas` column.  
   * **Action**: These rows will be dropped to maintain data quality.
 ![Handling NA](Asset/na.png)
-
-* **Duplicate Entries**  
-  * The dataset contains 212 duplicated rows.  
-  * **Action**: These rows will be **dropped** to maintain data quality.
-![Handling Duplicate](Asset/duplicate.png)
 
 
 * **Incorrect Data Type**  
