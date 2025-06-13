@@ -53,22 +53,19 @@ Both models will be assessed independently through comparative analysis covering
 
 --- 
 
-## Data Understanding
+## 📅❔ Data Understanding
 
-The Mamikos.csv dataset was collected via web scraping from website ['Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0) using the Data Miner Chrome extension.
+The Mamikos.csv dataset was collected via web scraping from website [Mamikos.com/Salatiga](https://mamikos.com/cari/salatiga-kota-salatiga-jawa-tengah-indonesia/all/bulanan/0-15000000/168?keyword=salatiga&suggestion_type=search&rent=2&sort=price,-&price=10000-20000000&singgahsini=0), using the Data Miner Chrome extension.
 It contains data about rental properties (boarding houses/kos-kosan) in Salatiga, Indonesia.
-**Data include 518 rows and 5 column**
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 518 entries, 0 to 517
-Data columns (total 5 columns):
- #   Column     Non-Null Count  Dtype 
----  ------     --------------  ----- 
- 0   nama_kos   518 non-null    object
- 1   tipe       518 non-null    object
- 2   alamat     518 non-null    object
- 3   fasilitas  507 non-null    object
- 4   harga      518 non-null    object
-dtypes: object(5)
+- **Data include 518 rows and 5 column**
+
+| # | Column | Non-Null Count | Dtype |
+|:---|:---|:---|:---|
+| 0 | nama_kos | 518 non-null | object |
+| 1 | tipe | 518 non-null | object |
+| 2 | alamat | 518 non-null | object |
+| 3 | fasilitas | 507 non-null | object |
+| 4 | harga | 518 non-null | object |
 
 ![Data Miner](Asset/data_miner.png)
 
@@ -84,37 +81,81 @@ dtypes: object(5)
 
 ![First Distribution](Asset/first_distri.png)
 
----
 
-**Data Understanding Insights**
+**ℹ️📅 Data Understanding Insights**
 
 - **Inconsistent Values**  
   We found inconsistent values in the `alamat` column — some entries only mention the area name (e.g., "Sidorejo"), while others include the word "Kecamatan" (e.g., "Kecamatan Sidomukti").  
-  > **Action**: Standardize all entries by removing the prefix **"Kecamatan"** so they merge under a unified value (e.g., `"Kecamatan Sidomukti"` → `"Sidomukti"`).
+  - **Action**: Standardize all entries by removing the prefix **"Kecamatan"** so they merge under a unified value (e.g., `"Kecamatan Sidomukti"` → `"Sidomukti"`).
 
 - **Unknown Values**  
   We found unknown or improperly formatted values in the `alamat` column, such as `"Kost MHome Sidorejo Salatiga"`.  
-  > **Action**: These entries will be **renamed/cleaned** for consistency and quality.
+  - **Action**: These entries will be **renamed/cleaned** for consistency and quality.
 
 - **Missing Values**  
   There are `11 missing values` in the `fasilitas` column.  
-  > **Action**: Rows with missing values will be **dropped** to ensure data integrity.
+  - **Action**: Rows with missing values will be **dropped** to ensure data integrity.
 
 - **Duplicate Entries**  
   We discovered `291 duplicate rows` in the dataset.  
-  > **Action**: All duplicates will be **removed** to prevent data bias.
+  - **Action**: All duplicates will be **removed** to prevent data bias.
 
 - **Incorrect Data Type**  
   The `harga` (price) column is currently of type **object (string)**.  
-  > **Action**: It will be **converted to a numeric type** to enable proper calculations and modeling.
+  - **Action**: It will be **converted to a numeric type** to enable proper calculations and modeling.
 
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+In this stage, we apply all the findings from the data understanding phase. The following actions are taken to clean and prepare the data:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+* **Inconsistent Values**  
+  * We found inconsistent values in the `alamat` column — some entries only mention the area name (e.g., "Sidorejo"), while others include the word "Kecamatan" (e.g., "Kecamatan Sidomukti").  
+  * **Action**: Standardize all entries by removing the prefix **"Kecamatan"** so they merge under a unified value (e.g., `"Kecamatan Sidomukti"` → `"Sidomukti"`).
+
+* **Rename Unknown Values**  
+  * We Found unknown values in alamat of `Kost MHome Sidorejo Salatiga`
+  * **Action**: These rows will be **Rename** to maintain data quality.
+
+
+* **Missing Values**  
+  * There are 11 missing values in the `fasilitas` column.  
+  * **Action**: These rows will be dropped to maintain data quality.
+
+* **Duplicate Entries**  
+  * The dataset contains 212 duplicated rows.  
+  * **Action**: These rows will be **dropped** to maintain data quality.
+
+* **Incorrect Data Type**  
+  * The `harga` (price) column is currently stored as an object (string).  
+  * **Action**: This column will be converted into a numeric data type for better analysis and modeling.
+
+---
+
+**Text Preprocessing**
+
+Further preprocessing will be applied to all text columns:
+
+* **Text Cleaning**  
+Standardizing text format by converting to lowercase and removing extra whitespace.
+
+* **Tokenization**  
+Splitting text into individual words (tokens) for easier manipulation and analysis.
+
+* **Stopword Removal**  
+Eliminating common words that carry little analytical value, such as “and”, “in”, “the”, etc.
+
+---
+
+**Feature Engineering**
+
+* **Using a Cleaned DataFrame**
+
+  In this step, we eliminate unnecessary columns and store the refined data into a new variable called `df_clean`. This allows us to focus only on the relevant features for our recommendation system.
+
+* **Creating a Combined Feature Column for Recommendation System**
+
+  Next, we create a new column called `FITUR_LENGKAP` by combining the values from the `TIPE`, `ALAMAT`, and `FASILITAS` columns. This combined text will serve as the input feature for the content-based recommendation system using **TF-IDF** and **Cosine Similarity** methods.
+
 
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
