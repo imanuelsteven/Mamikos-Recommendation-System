@@ -223,6 +223,30 @@ Eliminating common words that carry little analytical value, such as “and”, 
 
   Next, we create a new column called `FITUR_LENGKAP` by combining the values from the `TIPE`, `ALAMAT`, and `FASILITAS` columns. This combined text will serve as the input feature for the content-based recommendation system using **TF-IDF** and **Cosine Similarity** methods.
 
+  ---
+
+**Feature Extraction with TF-IDF**:
+
+* To extract important textual features, we use TF-IDF (Term Frequency Inverse Document Frequency), a statistical method that evaluates how relevant a word is to a document in a collection (or corpus).
+
+TF-IDF highlights words that are unique and meaningful, while down-weighting common words across documents.
+
+**TF-IDF is written in the formula:**
+$$
+TF(t,d) = \frac{\text{number of times t appears in d}}{\text{total number of term in d}}
+$$
+
+
+$$IDF(t,D) = log \frac {N} {1+df}$$
+
+$$TFD(t,d) = TF(t,d) * IDF(t)$$
+
+Where:
+
+- **TF(t, d)**: Term Frequency — measures how often a term `t` appears in a document `d`. The higher the frequency, the more important the term is **within that specific document**.
+
+- **IDF(t, D)**: Inverse Document Frequency — measures how unique or important a term `t` is **across the entire corpus `D`**. If a term appears in many documents, its IDF will be lower because it's considered less informative.
+
 **0. Rename Unknown Values in `Kost MHome Sidorejo Salatiga`**
 """
 
@@ -381,37 +405,50 @@ df_clean['FITUR_LENGKAP'] = df_clean[['TIPE', 'ALAMAT', 'FASILITAS']].agg(' '.jo
 
 df_clean.head()
 
-"""# Modelling
+"""**10. Feature Extraction Using TF-IDF and Show the Feature Name**"""
+
+# TfidfVectorizer Initiation
+tf = TfidfVectorizer()
+
+# Calculating
+tf.fit(df_clean['FITUR_LENGKAP'])
+
+# Get Feature Name
+tf.get_feature_names_out()
+
+"""**11. Transforming Text into TF-IDF Matrix and Check Matrix Shape**"""
+
+# Do fit and transform into matrix
+tfidf_matrix = tf.fit_transform(df_clean['FITUR_LENGKAP'])
+
+# matrix shape
+tfidf_matrix.shape
+
+print(tfidf_matrix[1])
+
+"""**12.Converting TF-IDF Matrix to Dense Format**
+
+To make it more readable, we convert the sparse matrix into a dense format and sample a few rows and column
+"""
+
+tfidf_matrix.todense()
+pd.DataFrame(
+    tfidf_matrix.todense(),
+    columns=tf.get_feature_names_out(),
+    index=df_clean.FITUR_LENGKAP
+).sample(10, axis=1).sample(10, axis=0)
+
+"""This output shows the importance scores of feature names (words) that have been extracted from the FITUR_LENGKAP text column using TF-IDF.
+
+For example, in the first row and first column, the word "kamar" (room) has a TF-IDF score of approximately 0.274. This indicates that the word "kamar" appears in the corresponding FITUR_LENGKAP entry on the left and carries a moderate level of importance in describing the boarding house's features. A higher score means the word is more relevant or unique to that specific description.
+
+# Modelling
 
 ## Content Based Filtering
 
-In this section, we build a recommendation system using a content-based filtering approach. The main focus is on utilizing the FITUR_LENGKAP column, which contains detailed descriptions of boarding house features. Here's how we proceed:
-
-**Feature Extraction with TF-IDF**:
-
-* To extract important textual features, we use TF-IDF (Term Frequency Inverse Document Frequency), a statistical method that evaluates how relevant a word is to a document in a collection (or corpus).
-
-TF-IDF highlights words that are unique and meaningful, while down-weighting common words across documents.
-
-**TF-IDF is written in the formula:**
-$$
-TF(t,d) = \frac{\text{number of times t appears in d}}{\text{total number of term in d}}
-$$
-
-
-$$IDF(t,D) = log \frac {N} {1+df}$$
-
-$$TFD(t,d) = TF(t,d) * IDF(t)$$
-
-Where:
-
-- **TF(t, d)**: Term Frequency — measures how often a term `t` appears in a document `d`. The higher the frequency, the more important the term is **within that specific document**.
-
-- **IDF(t, D)**: Inverse Document Frequency — measures how unique or important a term `t` is **across the entire corpus `D`**. If a term appears in many documents, its IDF will be lower because it's considered less informative.
-
-
-
----
+In this section, we build a recommendation system using a **content-based filtering approach**.  
+The main focus is on utilizing the **`FITUR_LENGKAP`** column — which has been preprocessed in the **Data Preparation** phase.  
+This column contains **detailed textual descriptions** of each boarding house’s features (e.g., type, location, facilities).
 
 **Cosine Similarity for Reccomendation System** :
 
@@ -436,44 +473,6 @@ where:
 - (A·B) : denotes the dot product of vectors A and B.
 - ||A|| : represents the Euclidean norm (magnitude) of vector A.
 - ||B|| : represents the Euclidean norm (magnitude) of vector B.
-
-**1. Feature Extraction Using TF-IDF and Show the Feature Name**
-"""
-
-# TfidfVectorizer Initiation
-tf = TfidfVectorizer()
-
-# Calculating
-tf.fit(df_clean['FITUR_LENGKAP'])
-
-# Get Feature Name
-tf.get_feature_names_out()
-
-"""**2. Transforming Text into TF-IDF Matrix and Check Matrix Shape**"""
-
-# Do fit and transform into matrix
-tfidf_matrix = tf.fit_transform(df_clean['FITUR_LENGKAP'])
-
-# matrix shape
-tfidf_matrix.shape
-
-print(tfidf_matrix[1])
-
-"""**3.Converting TF-IDF Matrix to Dense Format**
-
-To make it more readable, we convert the sparse matrix into a dense format and sample a few rows and column
-"""
-
-tfidf_matrix.todense()
-pd.DataFrame(
-    tfidf_matrix.todense(),
-    columns=tf.get_feature_names_out(),
-    index=df_clean.FITUR_LENGKAP
-).sample(10, axis=1).sample(10, axis=0)
-
-"""This output shows the importance scores of feature names (words) that have been extracted from the FITUR_LENGKAP text column using TF-IDF.
-
-For example, in the first row and first column, the word "kamar" (room) has a TF-IDF score of approximately 0.274. This indicates that the word "kamar" appears in the corresponding FITUR_LENGKAP entry on the left and carries a moderate level of importance in describing the boarding house's features. A higher score means the word is more relevant or unique to that specific description.
 
 **4.  Calculating Cosine Similarity**
 
@@ -695,7 +694,7 @@ def clusterbased_recommendation(namakos_input, top_n=5):
     target_cluster = df_clean[df_clean['NAMAKOS'] == namakos_input]['cluster'].values[0]
     recommendation = df_clean[(df_clean['cluster'] == target_cluster) & (df_clean['NAMAKOS'] != namakos_input)]
 
-    return recommendation.head(top_n)[['NAMAKOS','ALAMAT','TIPE','FASILITAS','HARGA','cluster', '']]
+    return recommendation.head(top_n)[['NAMAKOS','ALAMAT','TIPE','FASILITAS','HARGA','cluster']]
 
 """**5. Check recommendation system**"""
 
