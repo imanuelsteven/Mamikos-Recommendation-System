@@ -1,42 +1,53 @@
-# Laporan Proyek Machine Learning - Nama Anda
+#  Machine Learning Project Report - Steven Graciano
 
 ## Project Overview
 
-Pada bagian ini, Kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-- Format Referensi dapat mengacu pada penulisan sitasi [IEEE](https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE_Reference_Guide.pdf), [APA](https://www.mendeley.com/guides/apa-citation-guide/) atau secara umum seperti [di sini](https://penerbitdeepublish.com/menulis-buku-membuat-sitasi-dengan-mudah/)
-- Sumber yang bisa digunakan [Scholar](https://scholar.google.com/)
+This project aims to design and compare two distinct recommendation models—Content-Based Filtering and Cluster-Based Filtering to assist users in identifying suitable boarding houses (kos) in Salatiga, Indonesia. The objective is to improve the accommodation selection process by providing personalized recommendations aligned with user preferences and previously liked properties. Rather than combining models into a hybrid system, each will be developed and evaluated separately to determine which offers higher accuracy, relevance, and efficiency.
 
 ## Business Understanding
 
-Pada bagian ini, Anda perlu menjelaskan proses klarifikasi masalah.
+The motivation for this project arises from the common difficulty users face when searching for rental accommodations that match their specific preferences. Traditional listing platforms often lack personalization features, requiring users to manually browse numerous irrelevant listings.
 
-Bagian laporan ini mencakup:
+To address this, the project investigates two machine learning-based techniques:
+
+- Content-Based Filtering (CBF) recommends properties that share similar features—such as location, facilities, and type—with those the user has previously shown interest in.
+
+- Cluster-Based Filtering (CLF) utilizes unsupervised learning (e.g., K-Means clustering) to group properties with similar characteristics and recommends items from the same cluster as the user’s selected reference.
+
+By developing both models separately, the project aims to evaluate which technique provides more relevant recommendations, better performance, and interpretability.
 
 ### Problem Statements
 
-Menjelaskan pernyataan masalah:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+- How can a content-based filtering model be constructed to provide personalized boarding house recommendations based on explicit features?
+
+- How effective is a cluster-based filtering model in delivering recommendations when items are grouped using shared characteristics?
+
+- Between content-based and cluster-based filtering, which model yields more accurate and relevant suggestions for users in the Salatiga region?
 
 ### Goals
+- To build a content-based filtering model that recommends boarding houses by calculating the similarity between user-specified preferences and property features using appropriate similarity metrics.
 
-Menjelaskan tujuan proyek yang menjawab pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
+- To construct a cluster-based filtering model that segments the property dataset and recommends items from the same cluster as a given reference.
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
+- To evaluate both models using defined performance metrics such as Precision, Recall, and Silhouette Score, and determine which better reflects user preferences and usability.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Approach” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
 
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution approach (algoritma atau pendekatan sistem rekomendasi).
+### Solution statements
+**Solution 1: Content-Based Filtering Model**
+Develop a similarity-based recommendation system using cosine similarity to measure the likeness between properties based on their feature vectors.
+
+Key features may include:
+1. location
+2. Type
+3. Facility
+
+Solution 2: Cluster-Based Filtering Model
+Apply K-Means clustering to group properties into homogeneous clusters based on the same set of features.
+
+When a user inputs a preferred boarding house, the system identifies its cluster and recommends other properties from within the same cluster, assuming semantic similarity.
+
+Both models will be assessed independently through comparative analysis covering recommendation quality, computational performance, and system usability.
+
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
