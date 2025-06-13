@@ -227,7 +227,7 @@ where:
 - ||A|| : represents the Euclidean norm (magnitude) of vector A.
 - ||B|| : represents the Euclidean norm (magnitude) of vector B.
 
-`**Test Content Based Filtering Reccomendation**`
+#### **Test Content Based Filtering Reccomendation** 
 
 ![Test Content Based Filtering](Asset/cb_test.png)
 
@@ -281,7 +281,7 @@ We also use `Elbow Method` To find the optimal number of clusters (K), we use th
 
 This method ensures recommendations are feature-based and grouped by similarity.
 
-`**Test Cluster Based Filtering Reccomendation**`
+#### **Test Cluster Based Filtering Reccomendation**
 
 ![Test Cluster Based Filtering](Asset/clb_test.png)
 
