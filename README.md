@@ -301,8 +301,6 @@ While most of the recommended kos do belong to the same cluster and share simila
 
 - 🏷️ One recommendation has a different kos type, which may not fully align with the user's preference.
 
-- 🧩 One kos belongs to a different cluster, which shows that clustering may not always perfectly isolate feature similarity.
-
 Despite these small variations, the system still captures a meaningful level of similarity, providing reasonably relevant suggestions. This kind of variation is common in clustering models, especially when features are not strictly standardized.
 
 **Advantages of K‑Means Clustering:**
